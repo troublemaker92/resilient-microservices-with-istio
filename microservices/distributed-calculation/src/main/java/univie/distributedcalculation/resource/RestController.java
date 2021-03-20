@@ -30,6 +30,11 @@ public class RestController {
         return new ResponseEntity<>(controller.add(object), HttpStatus.OK);
     }
 
+    @PostMapping(value = "/multiply", consumes = MediaType.APPLICATION_JSON_VALUE)
+    private ResponseEntity<String> multiply(@RequestBody @Valid CalculationObject object) {
+        return new ResponseEntity<>(controller.multiply(object), HttpStatus.OK);
+    }
+
 
     @ExceptionHandler({ GenericException.class })
     public ResponseEntity<String> handleException(GenericException ex) {

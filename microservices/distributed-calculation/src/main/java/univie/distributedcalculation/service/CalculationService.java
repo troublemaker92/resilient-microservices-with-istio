@@ -11,4 +11,8 @@ public class CalculationService {
         return firstDecimal.add(secondDecimal);
     }
 
+    public BigDecimal multiply(BigDecimal firstDecimal, BigDecimal secondDecimal) {
+        return firstDecimal.multiply(secondDecimal);
+    }
+
 }
