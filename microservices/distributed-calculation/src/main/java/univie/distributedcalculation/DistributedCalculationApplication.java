@@ -9,12 +9,10 @@ import univie.distributedcalculation.controller.Controller;
 import univie.distributedcalculation.model.MicroserviceInfo;
 
 import javax.annotation.PostConstruct;
-import java.security.Provider;
 
 @SpringBootApplication
 public class DistributedCalculationApplication {
 
-    private Controller controller;
 
     @Value("${server.port}")
     private int port;
@@ -23,10 +21,10 @@ public class DistributedCalculationApplication {
         SpringApplication.run(DistributedCalculationApplication.class, args);
     }
 
-    @PostConstruct
-    void postConstruct(){
-        new RestTemplate().postForObject("http://localhost:7000/register", new MicroserviceInfo(
-                "localhost", port, "Addition of two numbers.", "add"), String.class);
-    }
+//    @PostConstruct
+//    void postConstruct(){
+//        new RestTemplate().postForObject("http://localhost:7000/register", new MicroserviceInfo(
+//                "localhost", port, "Addition of two numbers.", "add"), String.class);
+//    }
 
 }
