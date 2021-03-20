@@ -5,14 +5,13 @@ import org.springframework.stereotype.Service;
 import univie.distributedcalculation.model.CalculationObject;
 import univie.distributedcalculation.model.ECalculationType;
 import univie.distributedcalculation.service.CalculationService;
+import univie.distributedcalculation.service.Fibonacci;
 import univie.distributedcalculation.service.Prime;
 
 import javax.annotation.PostConstruct;
 import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.math.BigInteger;
+import java.util.*;
 import java.util.concurrent.atomic.AtomicInteger;
 
 @Service
@@ -40,6 +39,50 @@ public class Controller {
         sleep(SLEEP_TIMEOUT);
         endpointWorkload.get(ECalculationType.MULT).decrementAndGet();
         return String.valueOf(result);
+    }
+
+    /**
+     * Calculate Fibonacci number
+     * @param n digit, for calculation the n-th Fibonacci number
+     * @return result of calculation
+     */
+    public BigInteger calculateFibonacci(final Integer n) {
+        endpointWorkload.get(ECalculationType.FIBONACCI).incrementAndGet();
+        Fibonacci f = new Fibonacci();
+        Map<Integer,BigInteger> fibMap = new HashMap<>();
+        f.fillFirstElements(fibMap);
+        if(n < 7) return fibMap.get(n);
+
+        for(int i = 7; i <= n; i+=1){
+            Runnable h1 = new Fibonacci(i, fibMap.get(i-3), fibMap.get(i-6), fibMap);
+            Runnable h2 = new Fibonacci(i+1, fibMap.get(i-2), fibMap.get(i-5), fibMap);
+            Runnable h3 = new Fibonacci(i+2, fibMap.get(i-1), fibMap.get(i-4),fibMap);
+            Thread t1 = new Thread(h1);
+            Thread t2 = new Thread(h2);
+            Thread t3 = new Thread(h3);
+            t1.start();
+            t2.start();
+            t3.start();
+            try {
+                t1.join();
+                t2.join();
+                t3.join();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            i += 2;
+            if(fibMap.size() > 14){
+                Map<Integer, BigInteger> temp = new HashMap<>();
+                for(int j = 0; j < 7; j++){
+                    temp.put(i-j, fibMap.get(i-j));
+                }
+                fibMap.clear();
+                fibMap.putAll(temp);
+            }
+
+        }
+        endpointWorkload.get(ECalculationType.FIBONACCI).decrementAndGet();
+        return fibMap.get(n);
     }
 
 

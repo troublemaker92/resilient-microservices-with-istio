@@ -13,6 +13,8 @@ import univie.distributedcalculation.model.ECalculationType;
 import javax.validation.Valid;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
+import java.math.BigDecimal;
+import java.math.BigInteger;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
 
@@ -41,9 +43,19 @@ public class RestController {
      * /prime to calculate the n-th prime number
      * @return result of calculation of the n-th prime number
      */
-    @RequestMapping(value = "/prime", method = RequestMethod.POST)
+    @PostMapping(value = "/prime")
     public ResponseEntity<String> prime(@Valid @RequestParam("n") @NotNull @Min(0) Integer boundary) {
         List<Integer> result = controller.calculatePrime(boundary);
+        return new ResponseEntity<>(result.toString(), HttpStatus.OK);
+    }
+
+    /**
+     * /fibonacci to calculate the n-th Fibonacci number
+     * @return result of calculation of the n-th Fibonacci number
+     */
+    @PostMapping(value = "/fibonacci")
+    public ResponseEntity<String> fibonacci(@Valid @RequestParam("n") @NotNull @Min(0) Integer nthElement) {
+        BigInteger result = controller.calculateFibonacci(nthElement);
         return new ResponseEntity<>(result.toString(), HttpStatus.OK);
     }
 
