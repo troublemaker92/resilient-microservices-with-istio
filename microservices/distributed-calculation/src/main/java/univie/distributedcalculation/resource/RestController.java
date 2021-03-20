@@ -11,6 +11,9 @@ import univie.distributedcalculation.model.CalculationObject;
 import univie.distributedcalculation.model.ECalculationType;
 
 import javax.validation.Valid;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
+import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
 
 @org.springframework.web.bind.annotation.RestController
@@ -32,6 +35,16 @@ public class RestController {
     @PostMapping(value = "/multiply", consumes = MediaType.APPLICATION_JSON_VALUE)
     private ResponseEntity<String> multiply(@RequestBody @Valid CalculationObject object) {
         return new ResponseEntity<>(controller.multiply(object), HttpStatus.OK);
+    }
+
+    /**
+     * /prime to calculate the n-th prime number
+     * @return result of calculation of the n-th prime number
+     */
+    @RequestMapping(value = "/prime", method = RequestMethod.POST)
+    public ResponseEntity<String> prime(@Valid @RequestParam("n") @NotNull @Min(0) Integer boundary) {
+        List<Integer> result = controller.calculatePrime(boundary);
+        return new ResponseEntity<>(result.toString(), HttpStatus.OK);
     }
 
     @GetMapping(value = "/getWorkloadByType/{type}")
