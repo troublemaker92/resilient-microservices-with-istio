@@ -1,9 +1,12 @@
 package univie.distributedcalculation.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestTemplate;
 import univie.distributedcalculation.model.CalculationObject;
 import univie.distributedcalculation.model.ECalculationType;
+import univie.distributedcalculation.model.MicroserviceInfo;
 import univie.distributedcalculation.service.CalculationService;
 import univie.distributedcalculation.service.Fibonacci;
 import univie.distributedcalculation.service.Prime;
@@ -21,8 +24,28 @@ public class Controller {
 
     private Map<ECalculationType, AtomicInteger> endpointWorkload;
 
+    @Value("${server.port}")
+    private int port;
+
+    @Value("${ms1.url}")
+    private String serviceRepositoryUrl;
+
     @Autowired
     private CalculationService calculationService;
+
+    public void registerMe() {
+        List<MicroserviceInfo> endpointsToRegister = List.of(
+                new MicroserviceInfo("localhost", port, "Addition of two numbers.", "add"),
+                new MicroserviceInfo("localhost", port, "Multiplication of two numbers.", "mult"),
+                new MicroserviceInfo("localhost", port, "Calculate prime numbers.", "prime"),
+                new MicroserviceInfo("localhost", port, "Calculate fibonacci value for the given number.", "fibonacci"));
+        System.out.println("endpoints = " + endpointsToRegister);
+        System.out.println("repository URL = " + serviceRepositoryUrl);
+        System.out.println("port = " + port);
+        for (MicroserviceInfo ms: endpointsToRegister) {
+            new RestTemplate().postForObject(serviceRepositoryUrl, ms, String.class);
+        }
+    }
 
     public String add(CalculationObject calculationObject) {
         endpointWorkload.get(ECalculationType.ADD).incrementAndGet();

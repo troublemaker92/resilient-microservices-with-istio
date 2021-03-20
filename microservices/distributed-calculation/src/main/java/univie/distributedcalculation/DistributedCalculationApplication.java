@@ -13,18 +13,16 @@ import javax.annotation.PostConstruct;
 @SpringBootApplication
 public class DistributedCalculationApplication {
 
-
-    @Value("${server.port}")
-    private int port;
+    @Autowired
+    private Controller controller;
 
     public static void main(String[] args) {
         SpringApplication.run(DistributedCalculationApplication.class, args);
     }
 
-//    @PostConstruct
-//    void postConstruct(){
-//        new RestTemplate().postForObject("http://localhost:7000/register", new MicroserviceInfo(
-//                "localhost", port, "Addition of two numbers.", "add"), String.class);
-//    }
+    @PostConstruct
+    void postConstruct() {
+        controller.registerMe();
+    }
 
 }
