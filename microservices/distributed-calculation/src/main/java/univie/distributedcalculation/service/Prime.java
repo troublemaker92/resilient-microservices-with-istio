@@ -9,7 +9,7 @@ public class Prime implements Runnable {
     private Integer limit = null;
 
     // Number of threads, that is supported, to make calculations parallel
-    final static int THREADS = Runtime.getRuntime().availableProcessors();
+    final public static int THREADS = Runtime.getRuntime().availableProcessors();
     private List<Integer> primeNumbers = new ArrayList<>();
 
 

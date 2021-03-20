@@ -4,15 +4,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.ExceptionHandler;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.*;
 import univie.distributedcalculation.controller.Controller;
 import univie.distributedcalculation.exceptions.GenericException;
 import univie.distributedcalculation.model.CalculationObject;
+import univie.distributedcalculation.model.ECalculationType;
 
 import javax.validation.Valid;
+import java.util.concurrent.atomic.AtomicInteger;
 
 @org.springframework.web.bind.annotation.RestController
 public class RestController {
@@ -34,6 +33,14 @@ public class RestController {
     private ResponseEntity<String> multiply(@RequestBody @Valid CalculationObject object) {
         return new ResponseEntity<>(controller.multiply(object), HttpStatus.OK);
     }
+
+    @GetMapping(value = "/getWorkloadByType/{type}")
+    private ResponseEntity<AtomicInteger> multiply(@PathVariable("type") String type) {
+        return new ResponseEntity<>(
+                controller.getEndpointWorkloadByType(ECalculationType.valueOf(type.toUpperCase())), HttpStatus.OK);
+    }
+
+
 
 
     @ExceptionHandler({ GenericException.class })
