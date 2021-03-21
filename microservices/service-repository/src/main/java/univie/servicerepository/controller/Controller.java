@@ -2,14 +2,19 @@ package univie.servicerepository.controller;
 
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.http.HttpStatus;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.ResourceAccessException;
+import org.springframework.web.client.RestTemplate;
 import univie.servicerepository.exceptions.ServiceAlreadyRegisteredException;
 import univie.servicerepository.model.MicroserviceInfo;
+import univie.servicerepository.network.RetryService;
 
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
@@ -18,6 +23,9 @@ import java.util.List;
 @Data
 @Slf4j
 public class Controller {
+
+    @Autowired
+    private RetryService retryService;
 
     private List<MicroserviceInfo> registeredMicroservices = new ArrayList<>();
 
@@ -60,9 +68,9 @@ public class Controller {
     }
 
     private HttpStatus checkHealth(MicroserviceInfo ms) {
-        String url = "http://" + ms.getMsName() + ":" + ms.getMsPort() + "/health";
-        RestTemplateBuilder restTemplateBuilder = new RestTemplateBuilder().setConnectTimeout(Duration.ofMillis(1000));
-        return restTemplateBuilder.build().getForObject(url, HttpStatus.class);
+        String url = "http://" + ms.getMsName() + ":" + ms.getMsPort();
+        URI uri = URI.create(url);
+        return retryService.retryWhenError(uri);
     }
 
 
