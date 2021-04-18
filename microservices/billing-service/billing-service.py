@@ -1,10 +1,21 @@
 from flask import Flask, jsonify, request, redirect, abort, Response, json
+import socket
+import requests
+import threading
+
 
 app = Flask(__name__)
+PORT = 5000
+IP_ADDRESS = socket.gethostbyname(socket.gethostname())
+REGISTER_SERVICE = 'http://localhost:7000/register'
+HEADER_APP_JSON = {'Content-Type': 'application/json'}
+
+
+bind_to = {'hostname': "0.0.0.0", 'port': PORT}
 
 users = {}
 
-@app.route('/addAccount', methods=['POST'])
+@app.route('/createAccount', methods=['POST'])
 def add_account():
     if request.method == 'POST':
         user = request.args.get('user')
@@ -47,7 +58,7 @@ def charge_account():
 
 @app.route('/health', methods=['GET'])
 def health():
-    return Response(status=200)
+    return Response("OK", status=200)
 
 @app.route('/getAccountInfo', methods=['GET'])
 def get_account_info():
@@ -70,6 +81,17 @@ def remove_account():
             return Response("User " + user + " does not exist.", status=404)
     return abort(403)
 
+def send_description():
+    services_descriptions = [
+        {'msName': IP_ADDRESS, 'msPort': PORT, 'msDescription': 'Deletes account of a given user.', 'msFunction': 'deleteAccount'},
+        {'msName': IP_ADDRESS, 'msPort': PORT, 'msDescription': 'Gets account info for a given user.', 'msFunction': 'getAccountInfo'},
+        {'msName': IP_ADDRESS, 'msPort': PORT, 'msDescription': 'Charges account of a given user.', 'msFunction': 'chargeAccount'},
+        {'msName': IP_ADDRESS, 'msPort': PORT, 'msDescription': 'Deposits account of a given user.', 'msFunction': 'depositAccount'},
+        {'msName': IP_ADDRESS, 'msPort': PORT, 'msDescription': 'Creates account for a given user.', 'msFunction': 'createAccount'}
+    ]
+    for s in services_descriptions:
+        requests.post(url=REGISTER_SERVICE, json=s, headers=HEADER_APP_JSON)
+
 def try_to_int(amount):
     try:
         return int(amount)
@@ -77,4 +99,5 @@ def try_to_int(amount):
         return None
 
 if __name__ == '__main__':
-    app.run()
+    threading.Thread(target=send_description).start()
+    app.run(host=bind_to['hostname'], port=int(bind_to['port']), debug=True, use_reloader=False)
