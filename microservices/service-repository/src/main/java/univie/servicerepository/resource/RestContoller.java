@@ -28,7 +28,7 @@ public class RestContoller {
 
     @GetMapping(value = "/getRegisteredServices", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<List<MicroserviceInfo>> getRegisteredServices() {
-        return new ResponseEntity<>(controller.getRegisteredMicroservices(), HttpStatus.OK);
+        return new ResponseEntity<>(controller.getRegisteredServices(), HttpStatus.OK);
     }
 
 
