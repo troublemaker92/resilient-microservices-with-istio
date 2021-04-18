@@ -1,5 +1,6 @@
 package univie.distributedcalculation.resource;
 
+import feign.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -13,7 +14,6 @@ import univie.distributedcalculation.model.ECalculationType;
 import javax.validation.Valid;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
-import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
@@ -25,8 +25,8 @@ public class RestController {
     private Controller controller;
 
     @GetMapping("/health")
-    private HttpStatus health() {
-        return HttpStatus.OK;
+    private ResponseEntity<String> health() {
+        return new ResponseEntity<>("OK", HttpStatus.OK);
     }
 
     @PostMapping(value = "/add", consumes = MediaType.APPLICATION_JSON_VALUE)
@@ -64,8 +64,6 @@ public class RestController {
         return new ResponseEntity<>(
                 controller.getEndpointWorkloadByType(ECalculationType.valueOf(type.toUpperCase())), HttpStatus.OK);
     }
-
-
 
 
     @ExceptionHandler({ GenericException.class })

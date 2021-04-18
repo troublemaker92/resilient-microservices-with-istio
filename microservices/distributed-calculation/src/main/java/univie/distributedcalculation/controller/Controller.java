@@ -14,6 +14,8 @@ import univie.distributedcalculation.service.Prime;
 import javax.annotation.PostConstruct;
 import java.math.BigDecimal;
 import java.math.BigInteger;
+import java.net.InetAddress;
+import java.net.UnknownHostException;
 import java.util.*;
 import java.util.concurrent.atomic.AtomicInteger;
 
@@ -34,11 +36,17 @@ public class Controller {
     private CalculationService calculationService;
 
     public void registerMe() {
+        String hostName = null;
+        try {
+            hostName = InetAddress.getLocalHost().getHostName();
+        } catch (UnknownHostException e) {
+            e.printStackTrace();
+        }
         List<MicroserviceInfo> endpointsToRegister = List.of(
-                new MicroserviceInfo("localhost", port, "Addition of two numbers.", "add"),
-                new MicroserviceInfo("localhost", port, "Multiplication of two numbers.", "mult"),
-                new MicroserviceInfo("localhost", port, "Calculate prime numbers.", "prime"),
-                new MicroserviceInfo("localhost", port, "Calculate fibonacci value for the given number.", "fibonacci"));
+                new MicroserviceInfo(hostName, port, "Addition of two numbers.", "add"),
+                new MicroserviceInfo(hostName, port, "Multiplication of two numbers.", "mult"),
+                new MicroserviceInfo(hostName, port, "Calculate prime numbers.", "prime"),
+                new MicroserviceInfo(hostName, port, "Calculate fibonacci value for the given number.", "fibonacci"));
         System.out.println("endpoints = " + endpointsToRegister);
         System.out.println("repository URL = " + serviceRepositoryUrl);
         System.out.println("port = " + port);
@@ -75,7 +83,6 @@ public class Controller {
         Map<Integer,BigInteger> fibMap = new HashMap<>();
         f.fillFirstElements(fibMap);
         if(n < 7) return fibMap.get(n);
-
         for(int i = 7; i <= n; i+=1){
             Runnable h1 = new Fibonacci(i, fibMap.get(i-3), fibMap.get(i-6), fibMap);
             Runnable h2 = new Fibonacci(i+1, fibMap.get(i-2), fibMap.get(i-5), fibMap);
@@ -135,7 +142,6 @@ public class Controller {
             t[i] = new Thread(new Prime(i, n, primes));
             t[i].start();
         }
-
         int begin = (n - (n % numThreads)) + 2;
         for(; begin <= n; begin++){
             if(p.isPrime(begin))
