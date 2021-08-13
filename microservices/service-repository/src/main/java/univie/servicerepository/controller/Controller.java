@@ -8,9 +8,11 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.client.ResourceAccessException;
 import univie.servicerepository.exceptions.ServiceAlreadyRegisteredException;
 import univie.servicerepository.model.MicroserviceInfo;
+import univie.servicerepository.model.MicroserviceInfoMetrics;
 import univie.servicerepository.network.IFeignClient;
 import univie.servicerepository.network.RetryService;
 
+import javax.lang.model.type.MirroredTypeException;
 import java.net.URI;
 import java.util.*;
 import java.util.stream.Collectors;
@@ -40,6 +42,40 @@ public class Controller {
         return msInfoValues.stream()
                         .flatMap(List::stream)
                         .collect(Collectors.toList());
+    }
+
+    public List<MicroserviceInfo> getRegisteredServicesByFunction(String function) {
+        if (function == null) {
+            return new ArrayList<>();
+        }
+        var registeredServices = getRegisteredServices();
+
+        List<MicroserviceInfo> result = new ArrayList<>();
+        for (MicroserviceInfo msInfo: registeredServices) {
+            if ("calculation".equalsIgnoreCase(msInfo.getMsType())) {
+                String url = getUrlFromMsInfo(msInfo);
+                Integer workload = iFeignClient.getWorkloadByMsType(URI.create(url), msInfo.getMsFunction());
+                msInfo.setWorkload(workload);
+            }
+            result.add(msInfo);
+        }
+        return result.stream()
+                .filter(s -> function.equalsIgnoreCase(s.getMsFunction()))
+                .collect(Collectors.toList());
+    }
+
+
+    public List<MicroserviceInfoMetrics> getMetrics() {
+        List<MicroserviceInfo> msInfoValues = getRegisteredServices();
+        List<MicroserviceInfoMetrics> result = new ArrayList<>();
+        for (MicroserviceInfo msInfo: msInfoValues) {
+            if ("calculation".equalsIgnoreCase(msInfo.getMsType())) {
+                String url = getUrlFromMsInfo(msInfo);
+                Integer workload = iFeignClient.getWorkloadByMsType(URI.create(url), msInfo.getMsFunction());
+                result.add(new MicroserviceInfoMetrics(msInfo, workload));
+            }
+        }
+        return result;
     }
 
     private void registerMs(MicroserviceInfo msInfo, String msUrl) {

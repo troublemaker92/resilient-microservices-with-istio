@@ -25,4 +25,10 @@ public class MicroserviceInfo {
     @Size(min=1, message = "User name cannot be empty")
     private String msFunction;
 
+    @NotNull(message = "Type of service cannot be null.")
+    @Size(min=1, message = "Type of service length should be at least 1.")
+    private String msType;
+
+    private int workload;
+
 }

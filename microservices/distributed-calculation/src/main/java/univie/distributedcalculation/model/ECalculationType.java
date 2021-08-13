@@ -2,5 +2,5 @@ package univie.distributedcalculation.model;
 
 public enum ECalculationType {
 
-    ADD, MULT, FIBONACCI, PRIME
+    ADD, MULTIPLY, FIBONACCI, PRIME
 }

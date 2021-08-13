@@ -1,6 +1,5 @@
 package univie.distributedcalculation.service;
 
-import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.util.HashMap;
 import java.util.Map;

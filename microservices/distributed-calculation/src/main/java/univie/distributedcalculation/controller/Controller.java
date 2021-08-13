@@ -2,6 +2,7 @@ package univie.distributedcalculation.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 import univie.distributedcalculation.model.CalculationObject;
@@ -38,15 +39,15 @@ public class Controller {
     public void registerMe() {
         String hostName = null;
         try {
-            hostName = InetAddress.getLocalHost().getHostName();
+            hostName = InetAddress.getLocalHost().getHostAddress();
         } catch (UnknownHostException e) {
             e.printStackTrace();
         }
         List<MicroserviceInfo> endpointsToRegister = List.of(
-                new MicroserviceInfo(hostName, port, "Addition of two numbers.", "add"),
-                new MicroserviceInfo(hostName, port, "Multiplication of two numbers.", "mult"),
-                new MicroserviceInfo(hostName, port, "Calculate prime numbers.", "prime"),
-                new MicroserviceInfo(hostName, port, "Calculate fibonacci value for the given number.", "fibonacci"));
+                new MicroserviceInfo(hostName, port, "Addition of two numbers.", "add", "calculation"),
+                new MicroserviceInfo(hostName, port, "Multiplication of two numbers.", "multiply", "calculation"),
+                new MicroserviceInfo(hostName, port, "Calculate prime numbers.", "prime", "calculation"),
+                new MicroserviceInfo(hostName, port, "Calculate fibonacci value for the given number.", "fibonacci", "calculation"));
         System.out.println("endpoints = " + endpointsToRegister);
         System.out.println("repository URL = " + serviceRepositoryUrl);
         System.out.println("port = " + port);
@@ -64,11 +65,11 @@ public class Controller {
     }
 
     public String multiply(CalculationObject calculationObject) {
-        endpointWorkload.get(ECalculationType.MULT).incrementAndGet();
+        endpointWorkload.get(ECalculationType.MULTIPLY).incrementAndGet();
         BigDecimal result = calculationService.multiply(calculationObject.getDecimalOne(),
                 calculationObject.getDecimalTwo());
         sleep(SLEEP_TIMEOUT);
-        endpointWorkload.get(ECalculationType.MULT).decrementAndGet();
+        endpointWorkload.get(ECalculationType.MULTIPLY).decrementAndGet();
         return String.valueOf(result);
     }
 
@@ -167,7 +168,7 @@ public class Controller {
         endpointWorkload = Map.of(
                 ECalculationType.ADD, new AtomicInteger(0),
                 ECalculationType.FIBONACCI, new AtomicInteger(0),
-                ECalculationType.MULT, new AtomicInteger(0),
+                ECalculationType.MULTIPLY, new AtomicInteger(0),
                 ECalculationType.PRIME, new AtomicInteger(0)
         );
 
