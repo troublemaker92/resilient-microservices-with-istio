@@ -1,0 +1,72 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="UTF-8">
+<script>
+window.onload = function () {
+
+var chart = new CanvasJS.Chart("chartContainer", {
+	title: {
+		text: "Workload of each MS"
+	},
+	axisY: {
+		title: "Workload",
+		suffix: ""
+	},
+	data: [{
+		type: "column",	
+		yValueFormatString: "#,###",
+		indexLabel: "{y}",
+		dataPoints: [
+
+		]
+	}]
+});
+    
+function callApi() {
+    const userAction = async () => {
+    const response = await fetch('http://service-repository:8080/getMetrics');
+    const myJson = await response.json(); //extract JSON from the http response
+    }
+}
+
+function updateChart() {
+	var boilerColor, deltaY, yVal;
+	var dps = chart.options.data[0].dataPoints;
+    const request = new XMLHttpRequest();
+    const url = 'http://192.168.64.3:30005/getMetrics';
+    request.open("GET", url, true);
+    request.send();
+    request.onload = (e) => {
+        obj = JSON.parse(request.response)
+        for (var i = 0; i < obj.length; i++) {
+            console.log("hello" + i)
+            var msFunction = obj[i].microserviceInfo.msFunction;
+            var msWorkload = obj[i].workload;
+            console.log(msFunction);
+            console.log(msWorkload);
+        //boilerColor = yVal > 2 ? "#FF2500" : yVal >= 1 ? "#FF6000" : yVal < 2 ? "#6B8E23 " : null;
+            dps[i] = {label: msFunction, y: msWorkload, color: boilerColor};
+        }
+    }
+    
+//	for (var i = 0; i < dps.length; i++) {
+//		deltaY = Math.round(5 + Math.random() *(-2-2));
+//		yVal = deltaY + dps[i].y > 0 ? dps[i].y + deltaY : 0;
+//		boilerColor = yVal > 200 ? "#FF2500" : yVal >= 170 ? "#FF6000" : yVal < 170 ? "#6B8E23 " : null;
+//		dps[i] = {label: "Boiler" +(i+1) , y: yVal, color: boilerColor};
+//	}
+	chart.options.data[0].dataPoints = dps; 
+	chart.render();
+};
+updateChart();
+setInterval(function() {updateChart()}, 500);
+
+}
+</script>
+</head>
+<body>
+<div id="chartContainer" style="height: 370px; max-width: 920px; margin: 0px auto;"></div>
+<script src="canvasjs.min.js"></script>
+</body>
+</html>

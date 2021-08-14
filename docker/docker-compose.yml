@@ -1,0 +1,75 @@
+version: '3'
+services:
+  service-repository:
+    container_name: service-repository
+    restart: always
+    volumes:
+        - ./services/service-repository:/service-repository
+    build: ./services/service-repository
+    ports:
+      - 7000:8080
+    networks:
+        - calculation
+  distributed-calculation-1:
+    container_name: distributed-calculation-1
+    restart: always
+    depends_on:
+      - service-repository
+    volumes:
+        - ./services/distributed-calculation:/distributed-calculation
+    build: ./services/distributed-calculation
+    ports:
+      - 7001:8080
+    networks:
+        - calculation
+  distributed-calculation-2:
+    container_name: distributed-calculation-2
+    restart: always
+    depends_on:
+      - service-repository
+    volumes:
+        - ./services/distributed-calculation:/distributed-calculation
+    build: ./services/distributed-calculation
+    ports:
+      - 7005:8080
+    networks:
+        - calculation
+  billing:
+    container_name: billing
+    restart: always
+    depends_on:
+      - service-repository
+    volumes:
+        - ./services/billing:/billing
+    build: ./services/billing
+    ports:
+      - 7002:8080
+    networks:
+        - calculation
+  control-center:
+    container_name: control-center
+    restart: always
+    depends_on:
+      - service-repository
+    volumes:
+        - ./services/control-center:/control-center
+    build: ./services/control-center
+    ports:
+      - 7003:8080
+    networks:
+        - calculation
+  monitoring:
+    container_name: monitoring
+    restart: always
+    depends_on:
+      - service-repository
+    volumes:
+        - ./services/monitoring:/monitoring
+    build: ./services/monitoring
+    ports:
+      - 7004:80
+    networks:
+        - calculation
+networks:
+    calculation:
+        driver: bridge
