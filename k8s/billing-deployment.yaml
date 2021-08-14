@@ -1,0 +1,44 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: billing
+  name: billing
+spec:
+  replicas: 1
+  strategy: {}
+  selector:
+    matchLabels:
+      app: billing
+  template:
+    metadata:
+      labels:
+        app: billing
+    spec:
+      containers:
+      - image: troublemaker777/bachelor:billing
+        name: billing
+        ports:
+        - containerPort: 8080
+        resources: {}
+      restartPolicy: Always
+status: {}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: billing
+  name: billing
+spec:
+  type: NodePort
+  ports:
+  - name: "7002"
+    port: 8080
+    nodePort: 30001
+    targetPort: 8080
+  selector:
+    app: billing
+status:
+  loadBalancer: {}
+

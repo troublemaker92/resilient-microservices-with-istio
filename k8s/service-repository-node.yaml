@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: service-repository
+  name: service-repository
+spec:
+  replicas: 1
+  strategy: {}
+  selector:
+    matchLabels:
+      app: service-repository
+  template:
+    metadata:
+      labels:
+        app: service-repository
+    spec:
+      containers:
+      - image: troublemaker777/bachelor:service-repository
+        name: service-repository
+        ports:
+        - containerPort: 8080
+        resources: {}
+      restartPolicy: Always
+status: {}

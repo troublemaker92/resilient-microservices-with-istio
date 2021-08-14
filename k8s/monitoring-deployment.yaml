@@ -1,0 +1,43 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: monitoring
+  name: monitoring
+spec:
+  replicas: 1
+  strategy: {}
+  selector:
+    matchLabels:
+      app: monitoring
+  template:
+    metadata:
+      labels:
+        app: monitoring
+    spec:
+      containers:
+      - image: troublemaker777/bachelor:monitoring
+        name: monitoring
+        ports:
+        - containerPort: 80
+        resources: {}
+      restartPolicy: Always
+status: {}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: monitoring
+  name: monitoring
+spec:
+  type: NodePort
+  ports:
+  - port: 80
+    nodePort: 30004
+    targetPort: 80
+  selector:
+    app: monitoring
+status:
+  loadBalancer: {}
+
