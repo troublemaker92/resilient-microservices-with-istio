@@ -1,0 +1,921 @@
+{
+	"info": {
+		"_postman_id": "4dfb517a-885f-4ecb-b9ac-3fe394e8fa2d",
+		"name": "bachelor",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "ms1_register",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"msName\": \"name\",\n    \"msPort\": 8082,\n    \"msDescription\": \"something\",\n    \"msFunction\": \"function\"\n}"
+				},
+				"url": {
+					"raw": "localhost:7000/register",
+					"host": [
+						"localhost"
+					],
+					"port": "7000",
+					"path": [
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ms1_getRegistrations",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "localhost:7000/getRegisteredServices",
+					"host": [
+						"localhost"
+					],
+					"port": "7000",
+					"path": [
+						"getRegisteredServices"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ms1_findServiceByFunction",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "localhost:7000/getRegisteredServices",
+					"host": [
+						"localhost"
+					],
+					"port": "7000",
+					"path": [
+						"getRegisteredServices"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ms2_health",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "localhost:7001/health",
+					"host": [
+						"localhost"
+					],
+					"port": "7001",
+					"path": [
+						"health"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ms2_getMetrics",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "localhost:7001/health",
+					"host": [
+						"localhost"
+					],
+					"port": "7001",
+					"path": [
+						"health"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ms2_addTwoNumbers",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"decimalOne\": 2,\n    \"decimalTwo\": 5\n}"
+				},
+				"url": {
+					"raw": "localhost:7078/add",
+					"host": [
+						"localhost"
+					],
+					"port": "7078",
+					"path": [
+						"add"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ms2_addTwoNumbers Copy",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"decimalOne\": 2,\n    \"decimalTwo\": 5\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:7078/add",
+					"host": [
+						"localhost"
+					],
+					"port": "7078",
+					"path": [
+						"add"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ms2_prime",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "localhost:7004/prime?n=120",
+					"host": [
+						"localhost"
+					],
+					"port": "7004",
+					"path": [
+						"prime"
+					],
+					"query": [
+						{
+							"key": "n",
+							"value": "120"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ms2_timeout",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "localhost:8081/timeout?n=0",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"timeout"
+					],
+					"query": [
+						{
+							"key": "n",
+							"value": "0"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ms2_responseCode",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "localhost:8081/responseCode?n=400",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"responseCode"
+					],
+					"query": [
+						{
+							"key": "n",
+							"value": "400"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ms2_fibonacci",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "localhost:7004/fibonacci?n=120",
+					"host": [
+						"localhost"
+					],
+					"port": "7004",
+					"path": [
+						"fibonacci"
+					],
+					"query": [
+						{
+							"key": "n",
+							"value": "120"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ms2_getWorkload",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "localhost:7004/getWorkloadByType/add",
+					"host": [
+						"localhost"
+					],
+					"port": "7004",
+					"path": [
+						"getWorkloadByType",
+						"add"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ms3_register_user",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "localhost:7004/prime?n=120",
+					"host": [
+						"localhost"
+					],
+					"port": "7004",
+					"path": [
+						"prime"
+					],
+					"query": [
+						{
+							"key": "n",
+							"value": "120"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ms3_deposit",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "localhost:7004/prime?n=120",
+					"host": [
+						"localhost"
+					],
+					"port": "7004",
+					"path": [
+						"prime"
+					],
+					"query": [
+						{
+							"key": "n",
+							"value": "120"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ms3_getAccountInfo",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "localhost:5000/getAccountInfo?user=ruslan",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"getAccountInfo"
+					],
+					"query": [
+						{
+							"key": "user",
+							"value": "ruslan"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ms3_removeAccount",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "localhost:5000/deleteAccount?user=ruslan",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"deleteAccount"
+					],
+					"query": [
+						{
+							"key": "user",
+							"value": "ruslan"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ms3_charge",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "localhost:5000/chargeAccount?user=ruslan&amount=150",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"chargeAccount"
+					],
+					"query": [
+						{
+							"key": "user",
+							"value": "ruslan"
+						},
+						{
+							"key": "amount",
+							"value": "150"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ms4_ctrl_charge",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "localhost:5000/chargeAccount?user=ruslan&amount=150",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"chargeAccount"
+					],
+					"query": [
+						{
+							"key": "user",
+							"value": "ruslan"
+						},
+						{
+							"key": "amount",
+							"value": "150"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ms4_ctrl_createAccount",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "localhost:5000/chargeAccount?user=ruslan&amount=150",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"chargeAccount"
+					],
+					"query": [
+						{
+							"key": "user",
+							"value": "ruslan"
+						},
+						{
+							"key": "amount",
+							"value": "150"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ms4_ctrl_deposit",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "localhost:5000/chargeAccount?user=ruslan&amount=150",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"chargeAccount"
+					],
+					"query": [
+						{
+							"key": "user",
+							"value": "ruslan"
+						},
+						{
+							"key": "amount",
+							"value": "150"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ms4_ctrl_removeAccount",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "localhost:5000/getAccountInfo?user=ruslan",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"getAccountInfo"
+					],
+					"query": [
+						{
+							"key": "user",
+							"value": "ruslan"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ms4_getAccountInfo",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "localhost:5000/getAccountInfo?user=ruslan",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"getAccountInfo"
+					],
+					"query": [
+						{
+							"key": "user",
+							"value": "ruslan"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ms4_register_user",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "localhost:7003/createAccount?user=ruslan",
+					"host": [
+						"localhost"
+					],
+					"port": "7003",
+					"path": [
+						"createAccount"
+					],
+					"query": [
+						{
+							"key": "user",
+							"value": "ruslan"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ms4_calculate",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"ruslan\",\n    \"calculationType\": \"mult\",\n    \"price\": 30\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:5000/calculate?user=ruslan&calculationType=add&price=30",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"calculate"
+					],
+					"query": [
+						{
+							"key": "user",
+							"value": "ruslan"
+						},
+						{
+							"key": "calculationType",
+							"value": "add"
+						},
+						{
+							"key": "price",
+							"value": "30"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "simulator_simulate",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"ruslan\",\n    \"calculationType\": \"mult\",\n    \"price\": 30\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8084/simulate",
+					"host": [
+						"localhost"
+					],
+					"port": "8084",
+					"path": [
+						"simulate"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "analytics",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"ruslan\",\n    \"calculationType\": \"mult\",\n    \"price\": 30\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://192.168.64.3:30439/getAnalytics?function=add",
+					"protocol": "http",
+					"host": [
+						"192",
+						"168",
+						"64",
+						"3"
+					],
+					"port": "30439",
+					"path": [
+						"getAnalytics"
+					],
+					"query": [
+						{
+							"key": "function",
+							"value": "add"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "analytics_version",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"ruslan\",\n    \"calculationType\": \"mult\",\n    \"price\": 30\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8084/simulate",
+					"host": [
+						"localhost"
+					],
+					"port": "8084",
+					"path": [
+						"simulate"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "simulator_stop",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"ruslan\",\n    \"calculationType\": \"mult\",\n    \"price\": 30\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8084/stop?shouldStop=True",
+					"host": [
+						"localhost"
+					],
+					"port": "8084",
+					"path": [
+						"stop"
+					],
+					"query": [
+						{
+							"key": "shouldStop",
+							"value": "True"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
