@@ -1,0 +1,79 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: analytics
+  name: analytics
+spec:
+  replicas: 1
+  # strategy: {}
+  selector:
+    matchLabels:
+      app: analytics
+  template:
+    metadata:
+      labels:
+        app: analytics
+    spec:
+      containers:
+      - image: troublemaker777/bachelor:analytics
+        name: analytics
+        ports:
+        - containerPort: 8080
+        resources: {}
+      restartPolicy: Always
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: analytics-advanced
+  name: analytics-advanced
+spec:
+  replicas: 1
+  # strategy: {}
+  selector:
+    matchLabels:
+      app: analytics-advanced
+  template:
+    metadata:
+      labels:
+        app: analytics-advanced
+    spec:
+      containers:
+      - image: troublemaker777/bachelor:analytics_advanced
+        name: analytics-advanced
+        ports:
+        - containerPort: 8080
+        resources: {}
+      restartPolicy: Always
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: analytics
+  name: analytics
+spec:
+  ports:
+  - name: http
+    port: 8080
+    # targetPort: 8080
+  selector:
+    app: analytics
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: analytics-advanced
+  name: analytics-advanced
+spec:
+  ports:
+  - name: http
+    port: 8080
+    # targetPort: 8080
+  selector:
+    app: analytics-advanced
+# status:
+

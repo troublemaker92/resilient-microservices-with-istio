@@ -6,7 +6,7 @@ metadata:
   name: billing
 spec:
   replicas: 1
-  strategy: {}
+  # strategy: {}
   selector:
     matchLabels:
       app: billing
@@ -31,14 +31,14 @@ metadata:
     app: billing
   name: billing
 spec:
-  type: NodePort
+  # type: NodePort
   ports:
-  - name: "7002"
+  - name: http
     port: 8080
-    nodePort: 30001
-    targetPort: 8080
+    # targetPort: 8080
   selector:
     app: billing
-status:
-  loadBalancer: {}
+# status:
+#   loadBalancer: {}
+
 

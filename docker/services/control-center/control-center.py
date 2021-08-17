@@ -4,11 +4,14 @@ import requests
 from operator import itemgetter
 import threading
 from urllib.parse import urlencode
+import logging
+
 
 app = Flask(__name__)
 PORT = 8080
 IP_ADDRESS = socket.gethostbyname(socket.gethostname())
-REGISTER_SERVICE = 'http://service-repository:8080/findServiceByFunction'
+#REGISTER_SERVICE = 'http://service-repository:8080/findServiceByFunction'
+REGISTER_SERVICE = 'http://service-repository.default.svc.cluster.local:8080/findServiceByFunction'
 HEADER_APP_JSON = {'Content-Type': 'application/json'}
 bind_to = {'hostname': "0.0.0.0", 'port': PORT}
 
@@ -17,11 +20,14 @@ users = {}
 
 def find_service_by_name(service_name):
     uri = REGISTER_SERVICE + "?function=" + service_name
+    app.logger.info(uri)
     response = requests.get(url=uri)
     ms_name = json.loads(response.text)[0]["msName"]
     port = str(json.loads(response.text)[0]["msPort"])
     ms_function = str(json.loads(response.text)[0]["msFunction"])
-    return "http://" + ms_name + ":" + port + "/" + ms_function
+    url = "http://" + ms_name + ":" + port + "/" + ms_function
+    app.logger.info(url)
+    return url
 
 def generate_url(service_data):
     ms_name = service_data["msName"]
@@ -78,6 +84,14 @@ def remove_account():
     uri = find_service_by_name("deleteAccount") + "?" + queryParams
     return Response(requests.delete(url=uri), mimetype='application/json')
 
+@app.route('/getAnalytics', methods=['GET'])
+def get_analytics():
+    queryParams = urlencode(request.args)
+    return Response(requests.get("http://analytics:8080/getAnalytics" + queryParams), mimetype='application/json')
+
+@app.route('/getAnalyticsVersion', methods=['GET'])
+def get_analytics():
+    return Response(requests.get("http://analytics:8080/version"), mimetype='application/json')
 
 @app.route('/calculate2', methods=['POST'])
 def calculate2():

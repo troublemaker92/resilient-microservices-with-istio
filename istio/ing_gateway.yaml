@@ -1,0 +1,44 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: Gateway
+metadata:
+  name: distributed-calculation-gateway
+spec:
+  selector:
+    istio: ingressgateway
+  servers:
+  - port:
+      number: 80
+      name: http
+      protocol: HTTP
+    hosts:
+    - "*"
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: control
+spec:
+  hosts:
+  - "*"
+    # - control.default.svc.cluster.local
+  gateways:
+  - distributed-calculation-gateway
+  http:
+  - match:
+    - uri:
+        prefix: /calculate2
+    - uri:
+        prefix: /createAccount
+    - uri:
+        prefix: /depositAccount
+    - uri:
+        prefix: /chargeAccount
+    - uri:
+        prefix: /getAccountInfo
+    - uri:
+        prefix: /deleteAccount
+    route:
+    - destination:
+        host: control.default.svc.cluster.local
+        port:
+          number: 8080

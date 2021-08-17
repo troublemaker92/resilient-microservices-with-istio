@@ -13,11 +13,11 @@ global shouldStop
 shouldStop = False
 
 
-REGISTER_SERVICE = 'http://service-repository:8080/findServiceByFunction'
+#REGISTER_SERVICE = 'http://service-repository:8080/findServiceByFunction'
 
 
-#BASE_URL = 'http://192.168.64.3:30439/'
-BASE_URL = 'http://service-repository:8080/'
+BASE_URL = 'http://192.168.64.3:30439/'
+#BASE_URL = 'http://service-repository:8080/'
 HEADER_APP_JSON = {'Content-Type': 'application/json'}
 users = ["ruslan", "alexandra", "hannes", "daniel", "ivan"]
 calculation_type = ["add", "multiply", "fibonacci", "prime"]
@@ -26,7 +26,7 @@ def get_random_body():
     user = random.choice(users)
     calculation = random.choice(calculation_type)
     price = random.randint(1, 100)
-    firstNumber = "dd"
+    firstNumber = random.randint(100, 30000)
     secondNumber = random.randint(100, 30000)
     str = Template('{"user": "${user}","calculationType": "${calc}","price": ${price},"firstNumber": ${first},"secondNumber": ${second}}')
     return str.substitute(user=user, calc=calculation,price=price,first=firstNumber,second=secondNumber)

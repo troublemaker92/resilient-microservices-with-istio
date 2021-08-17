@@ -5,7 +5,7 @@ metadata:
     app: distributed-calculation-2
   name: distributed-calculation-2
 spec:
-  replicas: 1
+  replicas: 2
   strategy: {}
   selector:
     matchLabels:
@@ -33,7 +33,8 @@ metadata:
 spec:
   type: NodePort
   ports:
-  - port: 8080
+  - name: http
+    port: 8080
     nodePort: 30003
     targetPort: 8080
   selector:
