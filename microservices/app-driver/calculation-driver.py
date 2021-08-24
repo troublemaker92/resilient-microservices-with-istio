@@ -63,6 +63,7 @@ def simulate():
             requests.post(url_deposit)
         url = BASE_URL + 'calculate2'
         threading.Thread(target=random_request, args=(url, get_random_body(), HEADER_APP_JSON)).start()
+        requests.get("http://192.168.64.3:30439/getAnalytics?function=add")
         time.sleep(0.2)
     return create_response("OK", 200)
 

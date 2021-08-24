@@ -5,7 +5,7 @@ metadata:
     app: distributed-calculation-2
   name: distributed-calculation-2
 spec:
-  replicas: 2
+  replicas: 1
   strategy: {}
   selector:
     matchLabels:

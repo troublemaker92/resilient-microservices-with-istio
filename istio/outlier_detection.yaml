@@ -1,0 +1,15 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: DestinationRule
+metadata:
+  name: distributed-calculation-1
+spec:
+  host: distributed-calculation-1.default.svc.cluster.local
+  trafficPolicy:
+    outlierDetection:
+      baseEjectionTime: 60s
+      consecutiveErrors: 3
+      interval: 5s
+      maxEjectionPercent: 100
+
+
+      
