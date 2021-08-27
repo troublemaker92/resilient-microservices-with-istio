@@ -1,10 +1,10 @@
 apiVersion: networking.istio.io/v1alpha3
 kind: VirtualService
 metadata:
-  name: analysis-fault
+  name: service-repository
 spec:
   hosts:
-  - analytics.default.svc.cluster.local
+  - service-repository.default.svc.cluster.local
   http:
   - fault:
       abort:
@@ -13,4 +13,4 @@ spec:
           value: 100
     route:
     - destination:
-        host: analytics.default.svc.cluster.local
+        host: service-repository.default.svc.cluster.local

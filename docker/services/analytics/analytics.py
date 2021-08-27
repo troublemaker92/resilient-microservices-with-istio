@@ -12,8 +12,8 @@ app = Flask(__name__)
 PORT = 8080
 
 IP_ADDRESS = socket.gethostbyname(socket.gethostname())
-#REGISTER_SERVICE = 'http://192.168.64.3:30005/findServiceByFunction'
-REGISTER_SERVICE = 'http://service-repository.default.svc.cluster.local:8080/findServiceByFunction'
+REGISTER_SERVICE = 'http://distributed-calculation.default.svc.cluster.local:8080/'
+#REGISTER_SERVICE = 'http://localhost:8080/'
 HEADER_APP_JSON = {'Content-Type': 'application/json'}
 bind_to = {'hostname': "0.0.0.0", 'port': PORT}
 SERVICE_VERSION = 1
@@ -27,20 +27,18 @@ def generate_url(service_data):
 
 
 def get_prices(service_name):
-    uri = REGISTER_SERVICE + "?" + service_name
+    uri = REGISTER_SERVICE + "getWorkloadByType/" + service_name
     response = requests.get(url=uri)
-    result = []
-    for i in json.loads(response.text):
-        temp_info = i
-        price_main = i["workload"] * 3 + 10 + random.uniform(0, 20.5)
-        temp_info["estimatedTime"] = random.uniform(1, 20)
-        result.append(temp_info)
-    return result
+    price_main = int(response.text) * 3 + 10 + random.uniform(0, 20.5)
+    response_body = {
+        'estimatedTime': random.uniform(1, price_main),
+        'function': service_name
+    }
+    return response_body
 
 @app.route('/getAnalytics', methods=['GET'])
 def get_analytics():
-    queryParams = urlencode(request.args)
-    estimated_pirce = get_prices(queryParams)
+    estimated_pirce = get_prices(request.args.get("function"))
     return create_response(estimated_pirce, 200)
 
 

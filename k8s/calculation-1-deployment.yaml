@@ -2,22 +2,22 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    app: distributed-calculation-1
-  name: distributed-calculation-1
+    app: distributed-calculation
+  name: distributed-calculation
 spec:
   replicas: 1
   strategy: {}
   selector:
     matchLabels:
-      app: distributed-calculation-1
+      app: distributed-calculation
   template:
     metadata:
       labels:
-        app: distributed-calculation-1
+        app: distributed-calculation
     spec:
       containers:
       - image: troublemaker777/bachelor:distributed-calculation
-        name: distributed-calculation-1
+        name: distributed-calculation
         ports:
         - containerPort: 8080
         resources: {}
@@ -28,17 +28,16 @@ apiVersion: v1
 kind: Service
 metadata:
   labels:
-    app: distributed-calculation-1
-  name: distributed-calculation-1
+    app: distributed-calculation
+  name: distributed-calculation
 spec:
   type: NodePort
   ports:
   - name: http
     port: 8080
-    nodePort: 30002
-    targetPort: 8080
+    #targetPort: 8080
   selector:
-    app: distributed-calculation-1
+    app: distributed-calculation
 status:
   loadBalancer: {}
 

@@ -8,10 +8,10 @@ import time
 import atexit
 
 app = Flask(__name__)
-PORT = 8082
+PORT = 8081
 IP_ADDRESS = socket.gethostbyname(socket.gethostname())
 #REGISTER_SERVICE = 'http://service-repository:8080/register'
-REGISTER_SERVICE = 'http://localhost:8080/register'
+#REGISTER_SERVICE = 'http://localhost:8080/register'
 HEADER_APP_JSON = {'Content-Type': 'application/json'}
 
 def current_time_seconds():
@@ -132,14 +132,14 @@ def send_description():
         {'msName': IP_ADDRESS, 'msPort': PORT, 'msDescription': 'Deposits account of a given user.', 'msFunction': 'depositAccount','msType': 'account'},
         {'msName': IP_ADDRESS, 'msPort': PORT, 'msDescription': 'Creates account for a given user.', 'msFunction': 'createAccount','msType': 'account'}
     ]
-    for s in services_descriptions:
-        requests.post(url=REGISTER_SERVICE, json=s, headers=HEADER_APP_JSON)
+    #for s in services_descriptions:
+     #   requests.post(url=REGISTER_SERVICE, json=s, headers=HEADER_APP_JSON)
 
-def check_if_registration_works():
-    if current_time_seconds() - last_time_health_called > 60000:
-        exit(1)
-    if current_time_seconds() - last_time_health_called > 5000:
-        send_description()
+#def check_if_registration_works():
+#    if current_time_seconds() - last_time_health_called > 60000:
+#        exit(1)
+#    if current_time_seconds() - last_time_health_called > 5000:
+#        send_description()
 
 def try_to_int(amount):
     try:
@@ -163,8 +163,8 @@ def get_account_info_by_username(user_name):
     return response_body
 
 if __name__ == '__main__':
-    threading.Thread(target=send_description).start()
-    scheduler = BackgroundScheduler()
-    scheduler.add_job(func=check_if_registration_works, trigger="interval", seconds=5)
-    scheduler.start()
+    #threading.Thread(target=send_description).start()
+    #scheduler = BackgroundScheduler()
+    #scheduler.add_job(func=check_if_registration_works, trigger="interval", seconds=5)
+    #scheduler.start()
     app.run(host=bind_to['hostname'], port=int(bind_to['port']), debug=True, use_reloader=False)

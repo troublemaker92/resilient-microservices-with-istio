@@ -35,8 +35,8 @@ spec:
   ports:
   - name: http
     port: 8080
-    nodePort: 30003
-    targetPort: 8080
+    #nodePort: 30003
+    #targetPort: 8080
   selector:
     app: distributed-calculation-2
 status:

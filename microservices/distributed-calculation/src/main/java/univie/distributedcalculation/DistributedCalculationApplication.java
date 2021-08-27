@@ -9,19 +9,12 @@ import univie.distributedcalculation.controller.Controller;
 import javax.annotation.PostConstruct;
 
 @SpringBootApplication
-@EnableScheduling
+//@EnableScheduling
 public class DistributedCalculationApplication {
-
-    @Autowired
-    private Controller controller;
 
     public static void main(String[] args) {
         SpringApplication.run(DistributedCalculationApplication.class, args);
     }
 
-    @PostConstruct
-    void postConstruct() {
-        controller.registerMe();
-    }
 
 }

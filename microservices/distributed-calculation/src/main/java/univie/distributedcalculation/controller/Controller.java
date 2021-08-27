@@ -30,31 +30,31 @@ public class Controller {
     @Value("${server.port}")
     private int port;
 
-    @Value("${ms1.url}")
-    private String serviceRepositoryUrl;
+//    @Value("${ms1.url}")
+//    private String serviceRepositoryUrl;
 
     @Autowired
     private CalculationService calculationService;
 
-    public void registerMe() {
-        String hostName = null;
-        try {
-            hostName = InetAddress.getLocalHost().getHostAddress();
-        } catch (UnknownHostException e) {
-            e.printStackTrace();
-        }
-        List<MicroserviceInfo> endpointsToRegister = List.of(
-                new MicroserviceInfo(hostName, port, "Addition of two numbers.", "add", "calculation"),
-                new MicroserviceInfo(hostName, port, "Multiplication of two numbers.", "multiply", "calculation"),
-                new MicroserviceInfo(hostName, port, "Calculate prime numbers.", "prime", "calculation"),
-                new MicroserviceInfo(hostName, port, "Calculate fibonacci value for the given number.", "fibonacci", "calculation"));
-        System.out.println("endpoints = " + endpointsToRegister);
-        System.out.println("repository URL = " + serviceRepositoryUrl);
-        System.out.println("port = " + port);
-        for (MicroserviceInfo ms: endpointsToRegister) {
-            new RestTemplate().postForObject(serviceRepositoryUrl, ms, String.class);
-        }
-    }
+//    public void registerMe() {
+//        String hostName = null;
+//        try {
+//            hostName = InetAddress.getLocalHost().getHostAddress();
+//        } catch (UnknownHostException e) {
+//            e.printStackTrace();
+//        }
+//        List<MicroserviceInfo> endpointsToRegister = List.of(
+//                new MicroserviceInfo(hostName, port, "Addition of two numbers.", "add", "calculation"),
+//                new MicroserviceInfo(hostName, port, "Multiplication of two numbers.", "multiply", "calculation"),
+//                new MicroserviceInfo(hostName, port, "Calculate prime numbers.", "prime", "calculation"),
+//                new MicroserviceInfo(hostName, port, "Calculate fibonacci value for the given number.", "fibonacci", "calculation"));
+//        System.out.println("endpoints = " + endpointsToRegister);
+//        System.out.println("repository URL = " + serviceRepositoryUrl);
+//        System.out.println("port = " + port);
+//        for (MicroserviceInfo ms: endpointsToRegister) {
+//            new RestTemplate().postForObject(serviceRepositoryUrl, ms, String.class);
+//        }
+//    }
 
     public String add(CalculationObject calculationObject) {
         endpointWorkload.get(ECalculationType.ADD).incrementAndGet();

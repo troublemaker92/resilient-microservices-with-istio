@@ -33,11 +33,11 @@ public class RestController {
     private Integer timeout = null;
     private Integer responseCode = 200;
 
-    private long lastTimeCalled = System.currentTimeMillis();
+//    private long lastTimeCalled = System.currentTimeMillis();
 
     @GetMapping("/health")
     private ResponseEntity<String> health() {
-        this.lastTimeCalled = System.currentTimeMillis();
+//        this.lastTimeCalled = System.currentTimeMillis();
         return new ResponseEntity<>("OK", HttpStatus.OK);
     }
 
@@ -81,7 +81,7 @@ public class RestController {
     }
 
     @GetMapping(value = "/getWorkloadByType/{type}")
-    private ResponseEntity<AtomicInteger> multiply(@PathVariable("type") String type) {
+    private ResponseEntity<AtomicInteger> getWorkloadByType(@PathVariable("type") String type) {
         sleep();
         return new ResponseEntity<>(
                 controller.getEndpointWorkloadByType(ECalculationType.valueOf(type.toUpperCase())), HttpStatus.valueOf(responseCode));
@@ -106,17 +106,18 @@ public class RestController {
         return new ResponseEntity<>(ex.getErrorName() + ", " + ex.getMessage(), HttpStatus.BAD_REQUEST);
     }
 
-    @Scheduled(fixedRate = 5000)
-    private void removeDeadMicroservices() {
-        long diff = System.currentTimeMillis() - lastTimeCalled;
-        if (diff > 60000) {
-            log.info("Registration service was offline for 60s. Shutting down...");
-            System.exit(1);
-        } else if (diff > 5000) {
-            log.info("Trying to re-register service.");
-            controller.registerMe();
-        }
-    }
+    // not needed with istio
+//    @Scheduled(fixedRate = 5000)
+//    private void removeDeadMicroservices() {
+//        long diff = System.currentTimeMillis() - lastTimeCalled;
+//        if (diff > 60000) {
+//            log.info("Registration service was offline for 60s. Shutting down...");
+//            System.exit(1);
+//        } else if (diff > 5000) {
+//            log.info("Trying to re-register service.");
+//            controller.registerMe();
+//        }
+//    }
 
     private void sleep() {
         if (timeout != null) {

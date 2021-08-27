@@ -1,26 +1,14 @@
 apiVersion: networking.istio.io/v1alpha3
 kind: VirtualService
 metadata:
-  name: distributed-calculation-2
+  name: distributed-calculation
 spec:
   hosts:
-    - distributed-calculation-2.default.svc.cluster.local
+    - distributed-calculation.default.svc.cluster.local
   http:
     - route:
         - destination:
-            host: distributed-calculation-2.default.svc.cluster.local
----
-apiVersion: networking.istio.io/v1alpha3
-kind: VirtualService
-metadata:
-  name: distributed-calculation-1
-spec:
-  hosts:
-    - distributed-calculation-1.default.svc.cluster.local
-  http:
-    - route:
-        - destination:
-            host: distributed-calculation-1.default.svc.cluster.local
+            host: distributed-calculation.default.svc.cluster.local
 ---
 apiVersion: networking.istio.io/v1alpha3
 kind: VirtualService
@@ -34,17 +22,7 @@ spec:
         - destination:
             host: billing.default.svc.cluster.local
 ---
-apiVersion: networking.istio.io/v1alpha3
-kind: VirtualService
-metadata:
-  name: service-repository
-spec:
-  hosts:
-    - service-repository.default.svc.cluster.local
-  http:
-    - route:
-        - destination:
-            host: service-repository.default.svc.cluster.local
+
 
 
 
