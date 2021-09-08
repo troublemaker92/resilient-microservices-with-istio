@@ -33,15 +33,23 @@ def get_prices(service_name):
     response_body = {
         'estimatedPriceInEur': price_main,
         'estimatedPriceInDollar': price_main - 1,
-        'estimatedTime': random.uniform(1, 20),
-        'function': service_name
+        'estimatedTime': random.uniform(1, price_main),
+        'function': service_name,
+        'responseBody': response.status_code
     }
     return response_body
 
 @app.route('/getAnalytics', methods=['GET'])
 def get_analytics():
     estimated_pirce = get_prices(request.args.get("function"))
-    return create_response(estimated_pirce, 200)
+    status_code = estimated_pirce['responseBody']
+    del estimated_pirce['responseBody']
+    if status_code != 200:
+        response_body = {
+            'error': "Something went wrong."
+        }
+        return create_response(response_body, status_code)
+    return create_response(estimated_pirce, status_code)
 
 
 @app.route('/version', methods=['GET'])

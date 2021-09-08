@@ -1,44 +1,21 @@
-apiVersion: apps/v1
-kind: Deployment
+apiVersion: networking.istio.io/v1beta1
+kind: VirtualService
 metadata:
-  labels:
-    app: distributed-calculation-2
-  name: distributed-calculation-2
+  name: distributed-calculation-f3
 spec:
-  replicas: 1
-  strategy: {}
-  selector:
-    matchLabels:
-      app: distributed-calculation-2
-  template:
-    metadata:
-      labels:
-        app: distributed-calculation-2
-    spec:
-      containers:
-      - image: troublemaker777/bachelor:distributed-calculation
-        name: distributed-calculation-2
-        ports:
-        - containerPort: 8080
-        resources: {}
-      restartPolicy: Always
-status: {}
----
-apiVersion: v1
-kind: Service
-metadata:
-  labels:
-    app: distributed-calculation-2
-  name: distributed-calculation-2
-spec:
-  type: NodePort
-  ports:
-  - name: http
-    port: 8080
-    #nodePort: 30003
-    #targetPort: 8080
-  selector:
-    app: distributed-calculation-2
-status:
-  loadBalancer: {}
-
+  hosts:
+  - distributed-calculation.default.svc.cluster.local
+  http:
+  - fault:
+      abort:
+        httpStatus: 500
+        percentage:
+          value: 100
+    route:
+    - destination:
+        host: distributed-calculation.default.svc.cluster.local
+        subset: v1
+  - route:
+    - destination:
+        host: distributed-calculation.default.svc.cluster.local
+        subset: v2

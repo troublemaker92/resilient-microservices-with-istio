@@ -4,12 +4,11 @@ import feign.Response;
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
-import org.springframework.http.ResponseEntity;
+import org.springframework.http.*;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.ResourceAccessException;
+import org.springframework.web.client.RestTemplate;
 import univie.distributedcalculation.controller.Controller;
 import univie.distributedcalculation.exceptions.GenericException;
 import univie.distributedcalculation.model.CalculationObject;
@@ -19,8 +18,11 @@ import javax.validation.Valid;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import java.math.BigInteger;
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 import java.util.concurrent.atomic.AtomicInteger;
 
 @org.springframework.web.bind.annotation.RestController
@@ -32,6 +34,8 @@ public class RestController {
 
     private Integer timeout = null;
     private Integer responseCode = 200;
+    private Integer frequency = 0;
+    private boolean shouldCalculate = true;
 
 //    private long lastTimeCalled = System.currentTimeMillis();
 
@@ -49,13 +53,40 @@ public class RestController {
     @PostMapping(value = "/add", consumes = MediaType.APPLICATION_JSON_VALUE)
     private ResponseEntity<String> add(@RequestBody @Valid CalculationObject object) {
         sleep();
-        return new ResponseEntity<>(controller.add(object), HttpStatus.valueOf(responseCode));
+        int currentResponseCode = getResponseCode();
+        if (currentResponseCode != 200) {
+            return new ResponseEntity<>(null, HttpStatus.valueOf(currentResponseCode));
+        }
+        if (!shouldCalculate) {
+            return new ResponseEntity<>(null, HttpStatus.valueOf(currentResponseCode));
+        }
+        return new ResponseEntity<>(controller.add(object), HttpStatus.valueOf(currentResponseCode));
+    }
+
+    private int getResponseCode() {
+        if (frequency != 0) {
+            Random random = new Random();
+            int randomDigit = random.nextInt(frequency) + 1;
+            if (randomDigit == 1) {
+                return responseCode;
+            } else {
+                return 200;
+            }
+        }
+        return responseCode;
     }
 
     @PostMapping(value = "/multiply", consumes = MediaType.APPLICATION_JSON_VALUE)
     private ResponseEntity<String> multiply(@RequestBody @Valid CalculationObject object) {
         sleep();
-        return new ResponseEntity<>(controller.multiply(object), HttpStatus.valueOf(responseCode));
+        int currentResponseCode = getResponseCode();
+        if (currentResponseCode != 200) {
+            return new ResponseEntity<>(null, HttpStatus.valueOf(currentResponseCode));
+        }
+        if (!shouldCalculate) {
+            return new ResponseEntity<>(null, HttpStatus.valueOf(currentResponseCode));
+        }
+        return new ResponseEntity<>(controller.multiply(object), HttpStatus.valueOf(currentResponseCode));
     }
 
     /**
@@ -66,7 +97,14 @@ public class RestController {
     public ResponseEntity<String> prime(@Valid @RequestParam("n") @NotNull @Min(0) Integer boundary) {
         List<Integer> result = controller.calculatePrime(boundary);
         sleep();
-        return new ResponseEntity<>(result.toString(), HttpStatus.valueOf(responseCode));
+        int currentResponseCode = getResponseCode();
+        if (currentResponseCode != 200) {
+            return new ResponseEntity<>(null, HttpStatus.valueOf(currentResponseCode));
+        }
+        if (!shouldCalculate) {
+            return new ResponseEntity<>(null, HttpStatus.valueOf(currentResponseCode));
+        }
+        return new ResponseEntity<>(result.toString(), HttpStatus.valueOf(currentResponseCode));
     }
 
     /**
@@ -77,26 +115,39 @@ public class RestController {
     public ResponseEntity<String> fibonacci(@Valid @RequestParam("n") @NotNull @Min(0) Integer nthElement) {
         BigInteger result = controller.calculateFibonacci(nthElement);
         sleep();
-        return new ResponseEntity<>(result.toString(), HttpStatus.valueOf(responseCode));
+        int currentResponseCode = getResponseCode();
+        if (currentResponseCode != 200) {
+            return new ResponseEntity<>(null, HttpStatus.valueOf(currentResponseCode));
+        }
+        if (!shouldCalculate) {
+            return new ResponseEntity<>(null, HttpStatus.valueOf(currentResponseCode));
+        }
+        return new ResponseEntity<>(result.toString(), HttpStatus.valueOf(currentResponseCode));
     }
 
     @GetMapping(value = "/getWorkloadByType/{type}")
     private ResponseEntity<AtomicInteger> getWorkloadByType(@PathVariable("type") String type) {
         sleep();
+        int currentResponseCode = getResponseCode();
+        if (currentResponseCode != 200) {
+            return new ResponseEntity<>(null, HttpStatus.valueOf(currentResponseCode));
+        }
         return new ResponseEntity<>(
-                controller.getEndpointWorkloadByType(ECalculationType.valueOf(type.toUpperCase())), HttpStatus.valueOf(responseCode));
+                controller.getEndpointWorkloadByType(ECalculationType.valueOf(type.toUpperCase())), HttpStatus.valueOf(currentResponseCode));
     }
 
 
-    @PostMapping(value = "/timeout")
-    public ResponseEntity<Integer> timeout(@RequestParam("n") int n) {
-        timeout = n;
-        return new ResponseEntity<>(timeout, HttpStatus.OK);
-    }
-
-    @PostMapping(value = "/responseCode")
-    public ResponseEntity<Integer> responseCode(@RequestParam("n") int n) {
-        responseCode = n;
+    @PostMapping(value = "/fault")
+    public ResponseEntity<Integer> responseCode(
+            @RequestParam("timeout") int timeout,
+            @RequestParam("responseCode") int responseCode,
+            @RequestParam("frequency") int frequency,
+            @RequestParam("shouldCalculate") boolean shouldCalculate
+            ) {
+        this.responseCode = responseCode;
+        this.timeout = timeout;
+        this.frequency = frequency;
+        this.shouldCalculate = shouldCalculate;
         return new ResponseEntity<>(responseCode, HttpStatus.OK);
     }
 

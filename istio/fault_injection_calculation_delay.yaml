@@ -1,0 +1,19 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: distributed-calculation
+spec:
+  hosts:
+  - distributed-calculation.default.svc.cluster.local
+  http:
+  - fault:
+      delay:
+        fixedDelay: 10s
+        percentage:
+          value: 100
+    route:
+    - destination:
+        host: distributed-calculation.default.svc.cluster.local
+
+
+        

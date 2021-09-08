@@ -11,6 +11,7 @@ import logging
 app = Flask(__name__)
 PORT = 8080
 
+
 IP_ADDRESS = socket.gethostbyname(socket.gethostname())
 REGISTER_SERVICE = 'http://distributed-calculation.default.svc.cluster.local:8080/'
 #REGISTER_SERVICE = 'http://localhost:8080/'
@@ -32,14 +33,22 @@ def get_prices(service_name):
     price_main = int(response.text) * 3 + 10 + random.uniform(0, 20.5)
     response_body = {
         'estimatedTime': random.uniform(1, price_main),
-        'function': service_name
+        'function': service_name,
+        'responseBody': response.status_code
     }
     return response_body
 
 @app.route('/getAnalytics', methods=['GET'])
 def get_analytics():
     estimated_pirce = get_prices(request.args.get("function"))
-    return create_response(estimated_pirce, 200)
+    status_code = estimated_pirce['responseBody']
+    del estimated_pirce['responseBody']
+    if status_code != 200:
+        response_body = {
+            'error': "Something went wrong."
+        }
+        return create_response(response_body, status_code)
+    return create_response(estimated_pirce, status_code)
 
 
 @app.route('/version', methods=['GET'])

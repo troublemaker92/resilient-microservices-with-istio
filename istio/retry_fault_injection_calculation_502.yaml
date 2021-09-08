@@ -1,0 +1,16 @@
+apiVersion: networking.istio.io/v1beta1
+kind: VirtualService
+metadata:
+  name: distributed-calculation
+spec:
+  hosts:
+  - distributed-calculation.default.svc.cluster.local
+  http:
+  - fault:
+      abort:
+        httpStatus: 502
+        percentage:
+          value: 50
+    route:
+    - destination:
+        host: distributed-calculation.default.svc.cluster.local

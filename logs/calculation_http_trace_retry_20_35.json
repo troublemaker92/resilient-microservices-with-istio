@@ -1,0 +1,2073 @@
+{
+    "traces": [
+        {
+            "timestamp": "2021-09-08T05:05:58.878435Z",
+            "principal": null,
+            "session": null,
+            "request": {
+                "method": "POST",
+                "uri": "http://distributed-calculation.default.svc.cluster.local/prime?n=120",
+                "headers": {
+                    "x-request-id": [
+                        "0ac8820e-6b28-9db4-9fb8-ef2ad657c747"
+                    ],
+                    "content-length": [
+                        "0"
+                    ],
+                    "x-b3-parentspanid": [
+                        "e3daaaf8b2e69e08"
+                    ],
+                    "x-forwarded-proto": [
+                        "http"
+                    ],
+                    "x-b3-sampled": [
+                        "1"
+                    ],
+                    "accept": [
+                        "*/*"
+                    ],
+                    "x-envoy-attempt-count": [
+                        "1"
+                    ],
+                    "x-b3-traceid": [
+                        "069153fb649e7e52e3daaaf8b2e69e08"
+                    ],
+                    "x-b3-spanid": [
+                        "783f64c8cd083bb6"
+                    ],
+                    "x-forwarded-client-cert": [
+                        "By=spiffe://cluster.local/ns/default/sa/default;Hash=2fc04c32cb6a01f463087d478640bce98dad01f0fdef027d4c2eb9088d781733;Subject=\"\";URI=spiffe://cluster.local/ns/default/sa/default"
+                    ],
+                    "host": [
+                        "distributed-calculation.default.svc.cluster.local:8080"
+                    ],
+                    "content-type": [
+                        "application/json"
+                    ],
+                    "accept-encoding": [
+                        "gzip, deflate"
+                    ],
+                    "user-agent": [
+                        "python-requests/2.26.0"
+                    ]
+                },
+                "remoteAddress": null
+            },
+            "response": {
+                "status": 200,
+                "headers": {}
+            },
+            "timeTaken": 2
+        },
+        {
+            "timestamp": "2021-09-08T05:05:58.798613Z",
+            "principal": null,
+            "session": null,
+            "request": {
+                "method": "POST",
+                "uri": "http://distributed-calculation.default.svc.cluster.local/prime?n=120",
+                "headers": {
+                    "x-request-id": [
+                        "4ce509ad-113d-9a68-9172-6fd320da10d7"
+                    ],
+                    "content-length": [
+                        "0"
+                    ],
+                    "x-b3-parentspanid": [
+                        "f218192cd046ace6"
+                    ],
+                    "x-forwarded-proto": [
+                        "http"
+                    ],
+                    "x-b3-sampled": [
+                        "1"
+                    ],
+                    "accept": [
+                        "*/*"
+                    ],
+                    "x-envoy-attempt-count": [
+                        "1"
+                    ],
+                    "x-b3-traceid": [
+                        "84302886eea82009f218192cd046ace6"
+                    ],
+                    "x-b3-spanid": [
+                        "aedb9bbfc742ed2e"
+                    ],
+                    "x-forwarded-client-cert": [
+                        "By=spiffe://cluster.local/ns/default/sa/default;Hash=2fc04c32cb6a01f463087d478640bce98dad01f0fdef027d4c2eb9088d781733;Subject=\"\";URI=spiffe://cluster.local/ns/default/sa/default"
+                    ],
+                    "host": [
+                        "distributed-calculation.default.svc.cluster.local:8080"
+                    ],
+                    "content-type": [
+                        "application/json"
+                    ],
+                    "accept-encoding": [
+                        "gzip, deflate"
+                    ],
+                    "user-agent": [
+                        "python-requests/2.26.0"
+                    ]
+                },
+                "remoteAddress": null
+            },
+            "response": {
+                "status": 200,
+                "headers": {}
+            },
+            "timeTaken": 2
+        },
+        {
+            "timestamp": "2021-09-08T05:05:58.723409Z",
+            "principal": null,
+            "session": null,
+            "request": {
+                "method": "POST",
+                "uri": "http://distributed-calculation.default.svc.cluster.local/prime?n=120",
+                "headers": {
+                    "x-request-id": [
+                        "70063f1b-b40e-9fda-894b-a208e9868e81"
+                    ],
+                    "content-length": [
+                        "0"
+                    ],
+                    "x-b3-parentspanid": [
+                        "d556fbc6fff64262"
+                    ],
+                    "x-forwarded-proto": [
+                        "http"
+                    ],
+                    "x-b3-sampled": [
+                        "1"
+                    ],
+                    "accept": [
+                        "*/*"
+                    ],
+                    "x-envoy-attempt-count": [
+                        "1"
+                    ],
+                    "x-b3-traceid": [
+                        "1798215b6cd11597d556fbc6fff64262"
+                    ],
+                    "x-b3-spanid": [
+                        "99d4242cef6494d6"
+                    ],
+                    "x-forwarded-client-cert": [
+                        "By=spiffe://cluster.local/ns/default/sa/default;Hash=2fc04c32cb6a01f463087d478640bce98dad01f0fdef027d4c2eb9088d781733;Subject=\"\";URI=spiffe://cluster.local/ns/default/sa/default"
+                    ],
+                    "host": [
+                        "distributed-calculation.default.svc.cluster.local:8080"
+                    ],
+                    "content-type": [
+                        "application/json"
+                    ],
+                    "accept-encoding": [
+                        "gzip, deflate"
+                    ],
+                    "user-agent": [
+                        "python-requests/2.26.0"
+                    ]
+                },
+                "remoteAddress": null
+            },
+            "response": {
+                "status": 200,
+                "headers": {}
+            },
+            "timeTaken": 2
+        },
+        {
+            "timestamp": "2021-09-08T05:05:58.646564Z",
+            "principal": null,
+            "session": null,
+            "request": {
+                "method": "POST",
+                "uri": "http://distributed-calculation.default.svc.cluster.local/prime?n=120",
+                "headers": {
+                    "x-request-id": [
+                        "4ca4a118-9a5a-9188-9a7e-84bda708becf"
+                    ],
+                    "content-length": [
+                        "0"
+                    ],
+                    "x-b3-parentspanid": [
+                        "a8e957e76a17e8ff"
+                    ],
+                    "x-forwarded-proto": [
+                        "http"
+                    ],
+                    "x-b3-sampled": [
+                        "1"
+                    ],
+                    "accept": [
+                        "*/*"
+                    ],
+                    "x-envoy-attempt-count": [
+                        "1"
+                    ],
+                    "x-b3-traceid": [
+                        "96aa584372f1ac43a8e957e76a17e8ff"
+                    ],
+                    "x-b3-spanid": [
+                        "e3e4eb45c433ea8b"
+                    ],
+                    "x-forwarded-client-cert": [
+                        "By=spiffe://cluster.local/ns/default/sa/default;Hash=2fc04c32cb6a01f463087d478640bce98dad01f0fdef027d4c2eb9088d781733;Subject=\"\";URI=spiffe://cluster.local/ns/default/sa/default"
+                    ],
+                    "host": [
+                        "distributed-calculation.default.svc.cluster.local:8080"
+                    ],
+                    "content-type": [
+                        "application/json"
+                    ],
+                    "accept-encoding": [
+                        "gzip, deflate"
+                    ],
+                    "user-agent": [
+                        "python-requests/2.26.0"
+                    ]
+                },
+                "remoteAddress": null
+            },
+            "response": {
+                "status": 502,
+                "headers": {}
+            },
+            "timeTaken": 14
+        },
+        {
+            "timestamp": "2021-09-08T05:05:58.536812Z",
+            "principal": null,
+            "session": null,
+            "request": {
+                "method": "POST",
+                "uri": "http://distributed-calculation.default.svc.cluster.local/prime?n=120",
+                "headers": {
+                    "x-request-id": [
+                        "8e367ee9-6602-9557-bbc0-f10f13e6b0d3"
+                    ],
+                    "content-length": [
+                        "0"
+                    ],
+                    "x-b3-parentspanid": [
+                        "49e9ecc28bae0a25"
+                    ],
+                    "x-forwarded-proto": [
+                        "http"
+                    ],
+                    "x-b3-sampled": [
+                        "1"
+                    ],
+                    "accept": [
+                        "*/*"
+                    ],
+                    "x-envoy-attempt-count": [
+                        "1"
+                    ],
+                    "x-b3-traceid": [
+                        "821e1350ee4e683849e9ecc28bae0a25"
+                    ],
+                    "x-b3-spanid": [
+                        "288106a4088540fa"
+                    ],
+                    "x-forwarded-client-cert": [
+                        "By=spiffe://cluster.local/ns/default/sa/default;Hash=2fc04c32cb6a01f463087d478640bce98dad01f0fdef027d4c2eb9088d781733;Subject=\"\";URI=spiffe://cluster.local/ns/default/sa/default"
+                    ],
+                    "host": [
+                        "distributed-calculation.default.svc.cluster.local:8080"
+                    ],
+                    "content-type": [
+                        "application/json"
+                    ],
+                    "accept-encoding": [
+                        "gzip, deflate"
+                    ],
+                    "user-agent": [
+                        "python-requests/2.26.0"
+                    ]
+                },
+                "remoteAddress": null
+            },
+            "response": {
+                "status": 200,
+                "headers": {}
+            },
+            "timeTaken": 3
+        },
+        {
+            "timestamp": "2021-09-08T05:05:58.444315Z",
+            "principal": null,
+            "session": null,
+            "request": {
+                "method": "POST",
+                "uri": "http://distributed-calculation.default.svc.cluster.local/prime?n=120",
+                "headers": {
+                    "x-request-id": [
+                        "da2b7843-a3ff-9f27-b5ee-dd1df8fccc6b"
+                    ],
+                    "content-length": [
+                        "0"
+                    ],
+                    "x-b3-parentspanid": [
+                        "048ac864b7b52f81"
+                    ],
+                    "x-forwarded-proto": [
+                        "http"
+                    ],
+                    "x-b3-sampled": [
+                        "1"
+                    ],
+                    "accept": [
+                        "*/*"
+                    ],
+                    "x-envoy-attempt-count": [
+                        "1"
+                    ],
+                    "x-b3-traceid": [
+                        "c7c3bde23092c267048ac864b7b52f81"
+                    ],
+                    "x-b3-spanid": [
+                        "b1ca7342d1113e8e"
+                    ],
+                    "x-forwarded-client-cert": [
+                        "By=spiffe://cluster.local/ns/default/sa/default;Hash=2fc04c32cb6a01f463087d478640bce98dad01f0fdef027d4c2eb9088d781733;Subject=\"\";URI=spiffe://cluster.local/ns/default/sa/default"
+                    ],
+                    "host": [
+                        "distributed-calculation.default.svc.cluster.local:8080"
+                    ],
+                    "content-type": [
+                        "application/json"
+                    ],
+                    "accept-encoding": [
+                        "gzip, deflate"
+                    ],
+                    "user-agent": [
+                        "python-requests/2.26.0"
+                    ]
+                },
+                "remoteAddress": null
+            },
+            "response": {
+                "status": 200,
+                "headers": {}
+            },
+            "timeTaken": 2
+        },
+        {
+            "timestamp": "2021-09-08T05:05:58.365598Z",
+            "principal": null,
+            "session": null,
+            "request": {
+                "method": "POST",
+                "uri": "http://distributed-calculation.default.svc.cluster.local/prime?n=120",
+                "headers": {
+                    "x-request-id": [
+                        "d136044f-a39e-9cdd-89f4-6198177f9f66"
+                    ],
+                    "content-length": [
+                        "0"
+                    ],
+                    "x-b3-parentspanid": [
+                        "7330f6e6cc3baeb7"
+                    ],
+                    "x-forwarded-proto": [
+                        "http"
+                    ],
+                    "x-b3-sampled": [
+                        "1"
+                    ],
+                    "accept": [
+                        "*/*"
+                    ],
+                    "x-envoy-attempt-count": [
+                        "1"
+                    ],
+                    "x-b3-traceid": [
+                        "c343825338e0b8ff7330f6e6cc3baeb7"
+                    ],
+                    "x-b3-spanid": [
+                        "2736c560afee43ef"
+                    ],
+                    "x-forwarded-client-cert": [
+                        "By=spiffe://cluster.local/ns/default/sa/default;Hash=2fc04c32cb6a01f463087d478640bce98dad01f0fdef027d4c2eb9088d781733;Subject=\"\";URI=spiffe://cluster.local/ns/default/sa/default"
+                    ],
+                    "host": [
+                        "distributed-calculation.default.svc.cluster.local:8080"
+                    ],
+                    "content-type": [
+                        "application/json"
+                    ],
+                    "accept-encoding": [
+                        "gzip, deflate"
+                    ],
+                    "user-agent": [
+                        "python-requests/2.26.0"
+                    ]
+                },
+                "remoteAddress": null
+            },
+            "response": {
+                "status": 200,
+                "headers": {}
+            },
+            "timeTaken": 2
+        },
+        {
+            "timestamp": "2021-09-08T05:05:58.295561Z",
+            "principal": null,
+            "session": null,
+            "request": {
+                "method": "POST",
+                "uri": "http://distributed-calculation.default.svc.cluster.local/prime?n=120",
+                "headers": {
+                    "x-request-id": [
+                        "fa6e1ddc-b8c2-92f2-9c19-c3dbd0282cb2"
+                    ],
+                    "content-length": [
+                        "0"
+                    ],
+                    "x-b3-parentspanid": [
+                        "5d65f84190126810"
+                    ],
+                    "x-forwarded-proto": [
+                        "http"
+                    ],
+                    "x-b3-sampled": [
+                        "1"
+                    ],
+                    "accept": [
+                        "*/*"
+                    ],
+                    "x-envoy-attempt-count": [
+                        "1"
+                    ],
+                    "x-b3-traceid": [
+                        "9773c0cca71763965d65f84190126810"
+                    ],
+                    "x-b3-spanid": [
+                        "1bb99c6e85ce6bb8"
+                    ],
+                    "x-forwarded-client-cert": [
+                        "By=spiffe://cluster.local/ns/default/sa/default;Hash=2fc04c32cb6a01f463087d478640bce98dad01f0fdef027d4c2eb9088d781733;Subject=\"\";URI=spiffe://cluster.local/ns/default/sa/default"
+                    ],
+                    "host": [
+                        "distributed-calculation.default.svc.cluster.local:8080"
+                    ],
+                    "content-type": [
+                        "application/json"
+                    ],
+                    "accept-encoding": [
+                        "gzip, deflate"
+                    ],
+                    "user-agent": [
+                        "python-requests/2.26.0"
+                    ]
+                },
+                "remoteAddress": null
+            },
+            "response": {
+                "status": 200,
+                "headers": {}
+            },
+            "timeTaken": 3
+        },
+        {
+            "timestamp": "2021-09-08T05:05:58.156401Z",
+            "principal": null,
+            "session": null,
+            "request": {
+                "method": "POST",
+                "uri": "http://distributed-calculation.default.svc.cluster.local/prime?n=120",
+                "headers": {
+                    "x-request-id": [
+                        "90487ee5-86e1-9626-8e16-a66f1c25d3f0"
+                    ],
+                    "content-length": [
+                        "0"
+                    ],
+                    "x-b3-parentspanid": [
+                        "032797b84ecce36e"
+                    ],
+                    "x-forwarded-proto": [
+                        "http"
+                    ],
+                    "x-b3-sampled": [
+                        "1"
+                    ],
+                    "accept": [
+                        "*/*"
+                    ],
+                    "x-envoy-attempt-count": [
+                        "1"
+                    ],
+                    "x-b3-traceid": [
+                        "f2ad67cb286e87f1032797b84ecce36e"
+                    ],
+                    "x-b3-spanid": [
+                        "affe6f194bbf3672"
+                    ],
+                    "x-forwarded-client-cert": [
+                        "By=spiffe://cluster.local/ns/default/sa/default;Hash=2fc04c32cb6a01f463087d478640bce98dad01f0fdef027d4c2eb9088d781733;Subject=\"\";URI=spiffe://cluster.local/ns/default/sa/default"
+                    ],
+                    "host": [
+                        "distributed-calculation.default.svc.cluster.local:8080"
+                    ],
+                    "content-type": [
+                        "application/json"
+                    ],
+                    "accept-encoding": [
+                        "gzip, deflate"
+                    ],
+                    "user-agent": [
+                        "python-requests/2.26.0"
+                    ]
+                },
+                "remoteAddress": null
+            },
+            "response": {
+                "status": 200,
+                "headers": {}
+            },
+            "timeTaken": 4
+        },
+        {
+            "timestamp": "2021-09-08T05:05:58.069321Z",
+            "principal": null,
+            "session": null,
+            "request": {
+                "method": "POST",
+                "uri": "http://distributed-calculation.default.svc.cluster.local/prime?n=120",
+                "headers": {
+                    "x-request-id": [
+                        "b026cfe7-bd6c-90ac-a98c-1278e8be4d2f"
+                    ],
+                    "content-length": [
+                        "0"
+                    ],
+                    "x-b3-parentspanid": [
+                        "cf8820febd814042"
+                    ],
+                    "x-forwarded-proto": [
+                        "http"
+                    ],
+                    "x-b3-sampled": [
+                        "1"
+                    ],
+                    "accept": [
+                        "*/*"
+                    ],
+                    "x-envoy-attempt-count": [
+                        "1"
+                    ],
+                    "x-b3-traceid": [
+                        "03a49fc612fb1874cf8820febd814042"
+                    ],
+                    "x-b3-spanid": [
+                        "ac42744add7c7867"
+                    ],
+                    "x-forwarded-client-cert": [
+                        "By=spiffe://cluster.local/ns/default/sa/default;Hash=2fc04c32cb6a01f463087d478640bce98dad01f0fdef027d4c2eb9088d781733;Subject=\"\";URI=spiffe://cluster.local/ns/default/sa/default"
+                    ],
+                    "host": [
+                        "distributed-calculation.default.svc.cluster.local:8080"
+                    ],
+                    "content-type": [
+                        "application/json"
+                    ],
+                    "accept-encoding": [
+                        "gzip, deflate"
+                    ],
+                    "user-agent": [
+                        "python-requests/2.26.0"
+                    ]
+                },
+                "remoteAddress": null
+            },
+            "response": {
+                "status": 200,
+                "headers": {}
+            },
+            "timeTaken": 4
+        },
+        {
+            "timestamp": "2021-09-08T05:05:57.986792Z",
+            "principal": null,
+            "session": null,
+            "request": {
+                "method": "POST",
+                "uri": "http://distributed-calculation.default.svc.cluster.local/prime?n=120",
+                "headers": {
+                    "x-request-id": [
+                        "031870fa-9998-9353-ba2c-459485c1881e"
+                    ],
+                    "content-length": [
+                        "0"
+                    ],
+                    "x-b3-parentspanid": [
+                        "48f824066ddb603c"
+                    ],
+                    "x-forwarded-proto": [
+                        "http"
+                    ],
+                    "x-b3-sampled": [
+                        "1"
+                    ],
+                    "accept": [
+                        "*/*"
+                    ],
+                    "x-envoy-attempt-count": [
+                        "1"
+                    ],
+                    "x-b3-traceid": [
+                        "2fcf4f2dcf91395548f824066ddb603c"
+                    ],
+                    "x-b3-spanid": [
+                        "415285b755d55887"
+                    ],
+                    "x-forwarded-client-cert": [
+                        "By=spiffe://cluster.local/ns/default/sa/default;Hash=2fc04c32cb6a01f463087d478640bce98dad01f0fdef027d4c2eb9088d781733;Subject=\"\";URI=spiffe://cluster.local/ns/default/sa/default"
+                    ],
+                    "host": [
+                        "distributed-calculation.default.svc.cluster.local:8080"
+                    ],
+                    "content-type": [
+                        "application/json"
+                    ],
+                    "accept-encoding": [
+                        "gzip, deflate"
+                    ],
+                    "user-agent": [
+                        "python-requests/2.26.0"
+                    ]
+                },
+                "remoteAddress": null
+            },
+            "response": {
+                "status": 200,
+                "headers": {}
+            },
+            "timeTaken": 3
+        },
+        {
+            "timestamp": "2021-09-08T05:05:57.867749Z",
+            "principal": null,
+            "session": null,
+            "request": {
+                "method": "POST",
+                "uri": "http://distributed-calculation.default.svc.cluster.local/prime?n=120",
+                "headers": {
+                    "x-request-id": [
+                        "d6ccf9cf-80d4-932f-80b4-341685c56c76"
+                    ],
+                    "content-length": [
+                        "0"
+                    ],
+                    "x-b3-parentspanid": [
+                        "b1e19837b3f15ec4"
+                    ],
+                    "x-forwarded-proto": [
+                        "http"
+                    ],
+                    "x-b3-sampled": [
+                        "1"
+                    ],
+                    "accept": [
+                        "*/*"
+                    ],
+                    "x-envoy-attempt-count": [
+                        "1"
+                    ],
+                    "x-b3-traceid": [
+                        "a82258b4e5834804b1e19837b3f15ec4"
+                    ],
+                    "x-b3-spanid": [
+                        "345fe0f98fafd0e5"
+                    ],
+                    "x-forwarded-client-cert": [
+                        "By=spiffe://cluster.local/ns/default/sa/default;Hash=2fc04c32cb6a01f463087d478640bce98dad01f0fdef027d4c2eb9088d781733;Subject=\"\";URI=spiffe://cluster.local/ns/default/sa/default"
+                    ],
+                    "host": [
+                        "distributed-calculation.default.svc.cluster.local:8080"
+                    ],
+                    "content-type": [
+                        "application/json"
+                    ],
+                    "accept-encoding": [
+                        "gzip, deflate"
+                    ],
+                    "user-agent": [
+                        "python-requests/2.26.0"
+                    ]
+                },
+                "remoteAddress": null
+            },
+            "response": {
+                "status": 502,
+                "headers": {}
+            },
+            "timeTaken": 2
+        },
+        {
+            "timestamp": "2021-09-08T05:05:57.809898Z",
+            "principal": null,
+            "session": null,
+            "request": {
+                "method": "POST",
+                "uri": "http://distributed-calculation.default.svc.cluster.local/prime?n=120",
+                "headers": {
+                    "x-request-id": [
+                        "18da23d7-dd16-9f94-81ea-2de988d52431"
+                    ],
+                    "content-length": [
+                        "0"
+                    ],
+                    "x-b3-parentspanid": [
+                        "8a0a4d1786729dfb"
+                    ],
+                    "x-forwarded-proto": [
+                        "http"
+                    ],
+                    "x-b3-sampled": [
+                        "1"
+                    ],
+                    "accept": [
+                        "*/*"
+                    ],
+                    "x-envoy-attempt-count": [
+                        "1"
+                    ],
+                    "x-b3-traceid": [
+                        "c40ad638e35e9ebb8a0a4d1786729dfb"
+                    ],
+                    "x-b3-spanid": [
+                        "dc44f7625437b73b"
+                    ],
+                    "x-forwarded-client-cert": [
+                        "By=spiffe://cluster.local/ns/default/sa/default;Hash=2fc04c32cb6a01f463087d478640bce98dad01f0fdef027d4c2eb9088d781733;Subject=\"\";URI=spiffe://cluster.local/ns/default/sa/default"
+                    ],
+                    "host": [
+                        "distributed-calculation.default.svc.cluster.local:8080"
+                    ],
+                    "content-type": [
+                        "application/json"
+                    ],
+                    "accept-encoding": [
+                        "gzip, deflate"
+                    ],
+                    "user-agent": [
+                        "python-requests/2.26.0"
+                    ]
+                },
+                "remoteAddress": null
+            },
+            "response": {
+                "status": 502,
+                "headers": {}
+            },
+            "timeTaken": 2
+        },
+        {
+            "timestamp": "2021-09-08T05:05:57.739621Z",
+            "principal": null,
+            "session": null,
+            "request": {
+                "method": "POST",
+                "uri": "http://distributed-calculation.default.svc.cluster.local/prime?n=120",
+                "headers": {
+                    "x-request-id": [
+                        "61a55fc6-1fb2-9d63-8284-cd464e71ffd5"
+                    ],
+                    "content-length": [
+                        "0"
+                    ],
+                    "x-b3-parentspanid": [
+                        "2e071cc8914f19b8"
+                    ],
+                    "x-forwarded-proto": [
+                        "http"
+                    ],
+                    "x-b3-sampled": [
+                        "1"
+                    ],
+                    "accept": [
+                        "*/*"
+                    ],
+                    "x-envoy-attempt-count": [
+                        "1"
+                    ],
+                    "x-b3-traceid": [
+                        "b6e295bdf73ad7a22e071cc8914f19b8"
+                    ],
+                    "x-b3-spanid": [
+                        "7f03e751d1758794"
+                    ],
+                    "x-forwarded-client-cert": [
+                        "By=spiffe://cluster.local/ns/default/sa/default;Hash=2fc04c32cb6a01f463087d478640bce98dad01f0fdef027d4c2eb9088d781733;Subject=\"\";URI=spiffe://cluster.local/ns/default/sa/default"
+                    ],
+                    "host": [
+                        "distributed-calculation.default.svc.cluster.local:8080"
+                    ],
+                    "content-type": [
+                        "application/json"
+                    ],
+                    "accept-encoding": [
+                        "gzip, deflate"
+                    ],
+                    "user-agent": [
+                        "python-requests/2.26.0"
+                    ]
+                },
+                "remoteAddress": null
+            },
+            "response": {
+                "status": 502,
+                "headers": {}
+            },
+            "timeTaken": 4
+        },
+        {
+            "timestamp": "2021-09-08T05:05:57.662987Z",
+            "principal": null,
+            "session": null,
+            "request": {
+                "method": "POST",
+                "uri": "http://distributed-calculation.default.svc.cluster.local/prime?n=120",
+                "headers": {
+                    "x-request-id": [
+                        "cc07aab1-922e-95bd-b9ab-8bac94f96685"
+                    ],
+                    "content-length": [
+                        "0"
+                    ],
+                    "x-b3-parentspanid": [
+                        "002a2b73f6dc4a28"
+                    ],
+                    "x-forwarded-proto": [
+                        "http"
+                    ],
+                    "x-b3-sampled": [
+                        "1"
+                    ],
+                    "accept": [
+                        "*/*"
+                    ],
+                    "x-envoy-attempt-count": [
+                        "1"
+                    ],
+                    "x-b3-traceid": [
+                        "5c6d27f0974625fd002a2b73f6dc4a28"
+                    ],
+                    "x-b3-spanid": [
+                        "fe5906458dbcc0d1"
+                    ],
+                    "x-forwarded-client-cert": [
+                        "By=spiffe://cluster.local/ns/default/sa/default;Hash=2fc04c32cb6a01f463087d478640bce98dad01f0fdef027d4c2eb9088d781733;Subject=\"\";URI=spiffe://cluster.local/ns/default/sa/default"
+                    ],
+                    "host": [
+                        "distributed-calculation.default.svc.cluster.local:8080"
+                    ],
+                    "content-type": [
+                        "application/json"
+                    ],
+                    "accept-encoding": [
+                        "gzip, deflate"
+                    ],
+                    "user-agent": [
+                        "python-requests/2.26.0"
+                    ]
+                },
+                "remoteAddress": null
+            },
+            "response": {
+                "status": 200,
+                "headers": {}
+            },
+            "timeTaken": 2
+        },
+        {
+            "timestamp": "2021-09-08T05:05:57.588750Z",
+            "principal": null,
+            "session": null,
+            "request": {
+                "method": "POST",
+                "uri": "http://distributed-calculation.default.svc.cluster.local/prime?n=120",
+                "headers": {
+                    "x-request-id": [
+                        "44a70e46-7ab5-9a11-82ea-6e0831de12e1"
+                    ],
+                    "content-length": [
+                        "0"
+                    ],
+                    "x-b3-parentspanid": [
+                        "a34402d58ffc695e"
+                    ],
+                    "x-forwarded-proto": [
+                        "http"
+                    ],
+                    "x-b3-sampled": [
+                        "1"
+                    ],
+                    "accept": [
+                        "*/*"
+                    ],
+                    "x-envoy-attempt-count": [
+                        "1"
+                    ],
+                    "x-b3-traceid": [
+                        "a6d34e3c081dc565a34402d58ffc695e"
+                    ],
+                    "x-b3-spanid": [
+                        "0461675c5826b8b2"
+                    ],
+                    "x-forwarded-client-cert": [
+                        "By=spiffe://cluster.local/ns/default/sa/default;Hash=2fc04c32cb6a01f463087d478640bce98dad01f0fdef027d4c2eb9088d781733;Subject=\"\";URI=spiffe://cluster.local/ns/default/sa/default"
+                    ],
+                    "host": [
+                        "distributed-calculation.default.svc.cluster.local:8080"
+                    ],
+                    "content-type": [
+                        "application/json"
+                    ],
+                    "accept-encoding": [
+                        "gzip, deflate"
+                    ],
+                    "user-agent": [
+                        "python-requests/2.26.0"
+                    ]
+                },
+                "remoteAddress": null
+            },
+            "response": {
+                "status": 502,
+                "headers": {}
+            },
+            "timeTaken": 3
+        },
+        {
+            "timestamp": "2021-09-08T05:05:57.508351Z",
+            "principal": null,
+            "session": null,
+            "request": {
+                "method": "POST",
+                "uri": "http://distributed-calculation.default.svc.cluster.local/prime?n=120",
+                "headers": {
+                    "x-request-id": [
+                        "c6f163b7-9a28-9353-9ee3-84628112f59f"
+                    ],
+                    "content-length": [
+                        "0"
+                    ],
+                    "x-b3-parentspanid": [
+                        "76c2ffa16d5cbc12"
+                    ],
+                    "x-forwarded-proto": [
+                        "http"
+                    ],
+                    "x-b3-sampled": [
+                        "1"
+                    ],
+                    "accept": [
+                        "*/*"
+                    ],
+                    "x-envoy-attempt-count": [
+                        "1"
+                    ],
+                    "x-b3-traceid": [
+                        "388ce2d62843b8ad76c2ffa16d5cbc12"
+                    ],
+                    "x-b3-spanid": [
+                        "3dc9d8af2f9050e7"
+                    ],
+                    "x-forwarded-client-cert": [
+                        "By=spiffe://cluster.local/ns/default/sa/default;Hash=2fc04c32cb6a01f463087d478640bce98dad01f0fdef027d4c2eb9088d781733;Subject=\"\";URI=spiffe://cluster.local/ns/default/sa/default"
+                    ],
+                    "host": [
+                        "distributed-calculation.default.svc.cluster.local:8080"
+                    ],
+                    "content-type": [
+                        "application/json"
+                    ],
+                    "accept-encoding": [
+                        "gzip, deflate"
+                    ],
+                    "user-agent": [
+                        "python-requests/2.26.0"
+                    ]
+                },
+                "remoteAddress": null
+            },
+            "response": {
+                "status": 200,
+                "headers": {}
+            },
+            "timeTaken": 2
+        },
+        {
+            "timestamp": "2021-09-08T05:05:57.440284Z",
+            "principal": null,
+            "session": null,
+            "request": {
+                "method": "POST",
+                "uri": "http://distributed-calculation.default.svc.cluster.local/prime?n=120",
+                "headers": {
+                    "x-request-id": [
+                        "0892f61e-1086-95ee-9e84-1efc40694a37"
+                    ],
+                    "content-length": [
+                        "0"
+                    ],
+                    "x-b3-parentspanid": [
+                        "6779a7e98284343c"
+                    ],
+                    "x-forwarded-proto": [
+                        "http"
+                    ],
+                    "x-b3-sampled": [
+                        "1"
+                    ],
+                    "accept": [
+                        "*/*"
+                    ],
+                    "x-envoy-attempt-count": [
+                        "1"
+                    ],
+                    "x-b3-traceid": [
+                        "347edeea0a44ca236779a7e98284343c"
+                    ],
+                    "x-b3-spanid": [
+                        "0151ed6065de1f91"
+                    ],
+                    "x-forwarded-client-cert": [
+                        "By=spiffe://cluster.local/ns/default/sa/default;Hash=2fc04c32cb6a01f463087d478640bce98dad01f0fdef027d4c2eb9088d781733;Subject=\"\";URI=spiffe://cluster.local/ns/default/sa/default"
+                    ],
+                    "host": [
+                        "distributed-calculation.default.svc.cluster.local:8080"
+                    ],
+                    "content-type": [
+                        "application/json"
+                    ],
+                    "accept-encoding": [
+                        "gzip, deflate"
+                    ],
+                    "user-agent": [
+                        "python-requests/2.26.0"
+                    ]
+                },
+                "remoteAddress": null
+            },
+            "response": {
+                "status": 200,
+                "headers": {}
+            },
+            "timeTaken": 2
+        },
+        {
+            "timestamp": "2021-09-08T05:05:57.224966Z",
+            "principal": null,
+            "session": null,
+            "request": {
+                "method": "POST",
+                "uri": "http://distributed-calculation.default.svc.cluster.local/prime?n=120",
+                "headers": {
+                    "x-request-id": [
+                        "2ee03990-99dc-9f9a-ba94-a66b055d2aeb"
+                    ],
+                    "content-length": [
+                        "0"
+                    ],
+                    "x-b3-parentspanid": [
+                        "d1d6126523345f39"
+                    ],
+                    "x-forwarded-proto": [
+                        "http"
+                    ],
+                    "x-b3-sampled": [
+                        "1"
+                    ],
+                    "accept": [
+                        "*/*"
+                    ],
+                    "x-envoy-attempt-count": [
+                        "1"
+                    ],
+                    "x-b3-traceid": [
+                        "32eebeaa461468fed1d6126523345f39"
+                    ],
+                    "x-b3-spanid": [
+                        "6c7af0ea8397c13e"
+                    ],
+                    "x-forwarded-client-cert": [
+                        "By=spiffe://cluster.local/ns/default/sa/default;Hash=2fc04c32cb6a01f463087d478640bce98dad01f0fdef027d4c2eb9088d781733;Subject=\"\";URI=spiffe://cluster.local/ns/default/sa/default"
+                    ],
+                    "host": [
+                        "distributed-calculation.default.svc.cluster.local:8080"
+                    ],
+                    "content-type": [
+                        "application/json"
+                    ],
+                    "accept-encoding": [
+                        "gzip, deflate"
+                    ],
+                    "user-agent": [
+                        "python-requests/2.26.0"
+                    ]
+                },
+                "remoteAddress": null
+            },
+            "response": {
+                "status": 502,
+                "headers": {}
+            },
+            "timeTaken": 3
+        },
+        {
+            "timestamp": "2021-09-08T05:05:57.126358Z",
+            "principal": null,
+            "session": null,
+            "request": {
+                "method": "POST",
+                "uri": "http://distributed-calculation.default.svc.cluster.local/prime?n=120",
+                "headers": {
+                    "x-request-id": [
+                        "94ffb1cf-f3a6-939b-886e-1c57f0268743"
+                    ],
+                    "content-length": [
+                        "0"
+                    ],
+                    "x-b3-parentspanid": [
+                        "7a53ccc00142b756"
+                    ],
+                    "x-forwarded-proto": [
+                        "http"
+                    ],
+                    "x-b3-sampled": [
+                        "1"
+                    ],
+                    "accept": [
+                        "*/*"
+                    ],
+                    "x-envoy-attempt-count": [
+                        "1"
+                    ],
+                    "x-b3-traceid": [
+                        "04d920913901550a7a53ccc00142b756"
+                    ],
+                    "x-b3-spanid": [
+                        "d83c96efa655506f"
+                    ],
+                    "x-forwarded-client-cert": [
+                        "By=spiffe://cluster.local/ns/default/sa/default;Hash=2fc04c32cb6a01f463087d478640bce98dad01f0fdef027d4c2eb9088d781733;Subject=\"\";URI=spiffe://cluster.local/ns/default/sa/default"
+                    ],
+                    "host": [
+                        "distributed-calculation.default.svc.cluster.local:8080"
+                    ],
+                    "content-type": [
+                        "application/json"
+                    ],
+                    "accept-encoding": [
+                        "gzip, deflate"
+                    ],
+                    "user-agent": [
+                        "python-requests/2.26.0"
+                    ]
+                },
+                "remoteAddress": null
+            },
+            "response": {
+                "status": 502,
+                "headers": {}
+            },
+            "timeTaken": 9
+        },
+        {
+            "timestamp": "2021-09-08T05:05:57.026503Z",
+            "principal": null,
+            "session": null,
+            "request": {
+                "method": "POST",
+                "uri": "http://distributed-calculation.default.svc.cluster.local/prime?n=120",
+                "headers": {
+                    "x-request-id": [
+                        "c93656fc-33a7-9b38-805f-db04dae949b7"
+                    ],
+                    "content-length": [
+                        "0"
+                    ],
+                    "x-b3-parentspanid": [
+                        "bfbfeeb675918eb3"
+                    ],
+                    "x-forwarded-proto": [
+                        "http"
+                    ],
+                    "x-b3-sampled": [
+                        "1"
+                    ],
+                    "accept": [
+                        "*/*"
+                    ],
+                    "x-envoy-attempt-count": [
+                        "1"
+                    ],
+                    "x-b3-traceid": [
+                        "c8ed632ccdb1d8c6bfbfeeb675918eb3"
+                    ],
+                    "x-b3-spanid": [
+                        "a614b95334e825be"
+                    ],
+                    "x-forwarded-client-cert": [
+                        "By=spiffe://cluster.local/ns/default/sa/default;Hash=2fc04c32cb6a01f463087d478640bce98dad01f0fdef027d4c2eb9088d781733;Subject=\"\";URI=spiffe://cluster.local/ns/default/sa/default"
+                    ],
+                    "host": [
+                        "distributed-calculation.default.svc.cluster.local:8080"
+                    ],
+                    "content-type": [
+                        "application/json"
+                    ],
+                    "accept-encoding": [
+                        "gzip, deflate"
+                    ],
+                    "user-agent": [
+                        "python-requests/2.26.0"
+                    ]
+                },
+                "remoteAddress": null
+            },
+            "response": {
+                "status": 502,
+                "headers": {}
+            },
+            "timeTaken": 3
+        },
+        {
+            "timestamp": "2021-09-08T05:05:56.965034Z",
+            "principal": null,
+            "session": null,
+            "request": {
+                "method": "POST",
+                "uri": "http://distributed-calculation.default.svc.cluster.local/prime?n=120",
+                "headers": {
+                    "x-request-id": [
+                        "29febc18-d4fd-936a-bacd-4ae584ed3693"
+                    ],
+                    "content-length": [
+                        "0"
+                    ],
+                    "x-b3-parentspanid": [
+                        "3a9eb12e16f1bc8a"
+                    ],
+                    "x-forwarded-proto": [
+                        "http"
+                    ],
+                    "x-b3-sampled": [
+                        "1"
+                    ],
+                    "accept": [
+                        "*/*"
+                    ],
+                    "x-envoy-attempt-count": [
+                        "1"
+                    ],
+                    "x-b3-traceid": [
+                        "ac7de98f30fe04463a9eb12e16f1bc8a"
+                    ],
+                    "x-b3-spanid": [
+                        "af430a296653c33b"
+                    ],
+                    "x-forwarded-client-cert": [
+                        "By=spiffe://cluster.local/ns/default/sa/default;Hash=2fc04c32cb6a01f463087d478640bce98dad01f0fdef027d4c2eb9088d781733;Subject=\"\";URI=spiffe://cluster.local/ns/default/sa/default"
+                    ],
+                    "host": [
+                        "distributed-calculation.default.svc.cluster.local:8080"
+                    ],
+                    "content-type": [
+                        "application/json"
+                    ],
+                    "accept-encoding": [
+                        "gzip, deflate"
+                    ],
+                    "user-agent": [
+                        "python-requests/2.26.0"
+                    ]
+                },
+                "remoteAddress": null
+            },
+            "response": {
+                "status": 502,
+                "headers": {}
+            },
+            "timeTaken": 3
+        },
+        {
+            "timestamp": "2021-09-08T05:05:56.886332Z",
+            "principal": null,
+            "session": null,
+            "request": {
+                "method": "POST",
+                "uri": "http://distributed-calculation.default.svc.cluster.local/prime?n=120",
+                "headers": {
+                    "x-request-id": [
+                        "c26f07a8-2a36-9c6f-9b74-a941d4ccba05"
+                    ],
+                    "content-length": [
+                        "0"
+                    ],
+                    "x-b3-parentspanid": [
+                        "d3f48dbbd3b7c92f"
+                    ],
+                    "x-forwarded-proto": [
+                        "http"
+                    ],
+                    "x-b3-sampled": [
+                        "1"
+                    ],
+                    "accept": [
+                        "*/*"
+                    ],
+                    "x-envoy-attempt-count": [
+                        "1"
+                    ],
+                    "x-b3-traceid": [
+                        "2aa820ccd428a373d3f48dbbd3b7c92f"
+                    ],
+                    "x-b3-spanid": [
+                        "3d3da520fa9a2862"
+                    ],
+                    "x-forwarded-client-cert": [
+                        "By=spiffe://cluster.local/ns/default/sa/default;Hash=2fc04c32cb6a01f463087d478640bce98dad01f0fdef027d4c2eb9088d781733;Subject=\"\";URI=spiffe://cluster.local/ns/default/sa/default"
+                    ],
+                    "host": [
+                        "distributed-calculation.default.svc.cluster.local:8080"
+                    ],
+                    "content-type": [
+                        "application/json"
+                    ],
+                    "accept-encoding": [
+                        "gzip, deflate"
+                    ],
+                    "user-agent": [
+                        "python-requests/2.26.0"
+                    ]
+                },
+                "remoteAddress": null
+            },
+            "response": {
+                "status": 200,
+                "headers": {}
+            },
+            "timeTaken": 3
+        },
+        {
+            "timestamp": "2021-09-08T05:05:56.830920Z",
+            "principal": null,
+            "session": null,
+            "request": {
+                "method": "POST",
+                "uri": "http://distributed-calculation.default.svc.cluster.local/prime?n=120",
+                "headers": {
+                    "x-request-id": [
+                        "2884f020-c658-9c84-8efa-67ac5b6baca5"
+                    ],
+                    "content-length": [
+                        "0"
+                    ],
+                    "x-b3-parentspanid": [
+                        "17745d6388bb1094"
+                    ],
+                    "x-forwarded-proto": [
+                        "http"
+                    ],
+                    "x-b3-sampled": [
+                        "1"
+                    ],
+                    "accept": [
+                        "*/*"
+                    ],
+                    "x-envoy-attempt-count": [
+                        "1"
+                    ],
+                    "x-b3-traceid": [
+                        "bbff2a32d7ae584817745d6388bb1094"
+                    ],
+                    "x-b3-spanid": [
+                        "75e3cdc8f64d9a48"
+                    ],
+                    "x-forwarded-client-cert": [
+                        "By=spiffe://cluster.local/ns/default/sa/default;Hash=2fc04c32cb6a01f463087d478640bce98dad01f0fdef027d4c2eb9088d781733;Subject=\"\";URI=spiffe://cluster.local/ns/default/sa/default"
+                    ],
+                    "host": [
+                        "distributed-calculation.default.svc.cluster.local:8080"
+                    ],
+                    "content-type": [
+                        "application/json"
+                    ],
+                    "accept-encoding": [
+                        "gzip, deflate"
+                    ],
+                    "user-agent": [
+                        "python-requests/2.26.0"
+                    ]
+                },
+                "remoteAddress": null
+            },
+            "response": {
+                "status": 502,
+                "headers": {}
+            },
+            "timeTaken": 1
+        },
+        {
+            "timestamp": "2021-09-08T05:05:56.733527Z",
+            "principal": null,
+            "session": null,
+            "request": {
+                "method": "POST",
+                "uri": "http://distributed-calculation.default.svc.cluster.local/prime?n=120",
+                "headers": {
+                    "x-request-id": [
+                        "99dd3f1c-831d-938a-a7d2-dbd0e010cfae"
+                    ],
+                    "content-length": [
+                        "0"
+                    ],
+                    "x-b3-parentspanid": [
+                        "0ed777fee6f1c2f1"
+                    ],
+                    "x-forwarded-proto": [
+                        "http"
+                    ],
+                    "x-b3-sampled": [
+                        "1"
+                    ],
+                    "accept": [
+                        "*/*"
+                    ],
+                    "x-envoy-attempt-count": [
+                        "1"
+                    ],
+                    "x-b3-traceid": [
+                        "2557807d7cdf31200ed777fee6f1c2f1"
+                    ],
+                    "x-b3-spanid": [
+                        "e22d319a88ffb979"
+                    ],
+                    "x-forwarded-client-cert": [
+                        "By=spiffe://cluster.local/ns/default/sa/default;Hash=2fc04c32cb6a01f463087d478640bce98dad01f0fdef027d4c2eb9088d781733;Subject=\"\";URI=spiffe://cluster.local/ns/default/sa/default"
+                    ],
+                    "host": [
+                        "distributed-calculation.default.svc.cluster.local:8080"
+                    ],
+                    "content-type": [
+                        "application/json"
+                    ],
+                    "accept-encoding": [
+                        "gzip, deflate"
+                    ],
+                    "user-agent": [
+                        "python-requests/2.26.0"
+                    ]
+                },
+                "remoteAddress": null
+            },
+            "response": {
+                "status": 200,
+                "headers": {}
+            },
+            "timeTaken": 3
+        },
+        {
+            "timestamp": "2021-09-08T05:05:56.671780Z",
+            "principal": null,
+            "session": null,
+            "request": {
+                "method": "POST",
+                "uri": "http://distributed-calculation.default.svc.cluster.local/prime?n=120",
+                "headers": {
+                    "x-request-id": [
+                        "989750b5-d2fd-92e2-8110-476ed11a69c2"
+                    ],
+                    "content-length": [
+                        "0"
+                    ],
+                    "x-b3-parentspanid": [
+                        "679b8f09627e7840"
+                    ],
+                    "x-forwarded-proto": [
+                        "http"
+                    ],
+                    "x-b3-sampled": [
+                        "1"
+                    ],
+                    "accept": [
+                        "*/*"
+                    ],
+                    "x-envoy-attempt-count": [
+                        "1"
+                    ],
+                    "x-b3-traceid": [
+                        "81f4bfffec25cf87679b8f09627e7840"
+                    ],
+                    "x-b3-spanid": [
+                        "a6878f7dd7f43d8a"
+                    ],
+                    "x-forwarded-client-cert": [
+                        "By=spiffe://cluster.local/ns/default/sa/default;Hash=2fc04c32cb6a01f463087d478640bce98dad01f0fdef027d4c2eb9088d781733;Subject=\"\";URI=spiffe://cluster.local/ns/default/sa/default"
+                    ],
+                    "host": [
+                        "distributed-calculation.default.svc.cluster.local:8080"
+                    ],
+                    "content-type": [
+                        "application/json"
+                    ],
+                    "accept-encoding": [
+                        "gzip, deflate"
+                    ],
+                    "user-agent": [
+                        "python-requests/2.26.0"
+                    ]
+                },
+                "remoteAddress": null
+            },
+            "response": {
+                "status": 502,
+                "headers": {}
+            },
+            "timeTaken": 1
+        },
+        {
+            "timestamp": "2021-09-08T05:05:56.602213Z",
+            "principal": null,
+            "session": null,
+            "request": {
+                "method": "POST",
+                "uri": "http://distributed-calculation.default.svc.cluster.local/prime?n=120",
+                "headers": {
+                    "x-request-id": [
+                        "6d6e472e-1f8c-9811-ab35-a1c122071f3f"
+                    ],
+                    "content-length": [
+                        "0"
+                    ],
+                    "x-b3-parentspanid": [
+                        "7affbd12a4b1976f"
+                    ],
+                    "x-forwarded-proto": [
+                        "http"
+                    ],
+                    "x-b3-sampled": [
+                        "1"
+                    ],
+                    "accept": [
+                        "*/*"
+                    ],
+                    "x-envoy-attempt-count": [
+                        "1"
+                    ],
+                    "x-b3-traceid": [
+                        "274df0fe4c463d337affbd12a4b1976f"
+                    ],
+                    "x-b3-spanid": [
+                        "1f2169b0716bb744"
+                    ],
+                    "x-forwarded-client-cert": [
+                        "By=spiffe://cluster.local/ns/default/sa/default;Hash=2fc04c32cb6a01f463087d478640bce98dad01f0fdef027d4c2eb9088d781733;Subject=\"\";URI=spiffe://cluster.local/ns/default/sa/default"
+                    ],
+                    "host": [
+                        "distributed-calculation.default.svc.cluster.local:8080"
+                    ],
+                    "content-type": [
+                        "application/json"
+                    ],
+                    "accept-encoding": [
+                        "gzip, deflate"
+                    ],
+                    "user-agent": [
+                        "python-requests/2.26.0"
+                    ]
+                },
+                "remoteAddress": null
+            },
+            "response": {
+                "status": 200,
+                "headers": {}
+            },
+            "timeTaken": 2
+        },
+        {
+            "timestamp": "2021-09-08T05:05:56.525722Z",
+            "principal": null,
+            "session": null,
+            "request": {
+                "method": "POST",
+                "uri": "http://distributed-calculation.default.svc.cluster.local/prime?n=120",
+                "headers": {
+                    "x-request-id": [
+                        "5d5b76eb-cddf-9eab-86ff-30d8715e7695"
+                    ],
+                    "content-length": [
+                        "0"
+                    ],
+                    "x-b3-parentspanid": [
+                        "de9760eb8ea0d778"
+                    ],
+                    "x-forwarded-proto": [
+                        "http"
+                    ],
+                    "x-b3-sampled": [
+                        "1"
+                    ],
+                    "accept": [
+                        "*/*"
+                    ],
+                    "x-envoy-attempt-count": [
+                        "1"
+                    ],
+                    "x-b3-traceid": [
+                        "a7570384ad4f50d8de9760eb8ea0d778"
+                    ],
+                    "x-b3-spanid": [
+                        "4d862f86a7874723"
+                    ],
+                    "x-forwarded-client-cert": [
+                        "By=spiffe://cluster.local/ns/default/sa/default;Hash=2fc04c32cb6a01f463087d478640bce98dad01f0fdef027d4c2eb9088d781733;Subject=\"\";URI=spiffe://cluster.local/ns/default/sa/default"
+                    ],
+                    "host": [
+                        "distributed-calculation.default.svc.cluster.local:8080"
+                    ],
+                    "content-type": [
+                        "application/json"
+                    ],
+                    "accept-encoding": [
+                        "gzip, deflate"
+                    ],
+                    "user-agent": [
+                        "python-requests/2.26.0"
+                    ]
+                },
+                "remoteAddress": null
+            },
+            "response": {
+                "status": 200,
+                "headers": {}
+            },
+            "timeTaken": 7
+        },
+        {
+            "timestamp": "2021-09-08T05:05:56.470489Z",
+            "principal": null,
+            "session": null,
+            "request": {
+                "method": "POST",
+                "uri": "http://distributed-calculation.default.svc.cluster.local/prime?n=120",
+                "headers": {
+                    "x-request-id": [
+                        "cdd36ef2-a83f-97c6-9b73-0caa7d2ef0c4"
+                    ],
+                    "content-length": [
+                        "0"
+                    ],
+                    "x-b3-parentspanid": [
+                        "2c1dab9e324a6cb4"
+                    ],
+                    "x-forwarded-proto": [
+                        "http"
+                    ],
+                    "x-b3-sampled": [
+                        "1"
+                    ],
+                    "accept": [
+                        "*/*"
+                    ],
+                    "x-envoy-attempt-count": [
+                        "1"
+                    ],
+                    "x-b3-traceid": [
+                        "05927369c7e332f82c1dab9e324a6cb4"
+                    ],
+                    "x-b3-spanid": [
+                        "fa717d0725dea94a"
+                    ],
+                    "x-forwarded-client-cert": [
+                        "By=spiffe://cluster.local/ns/default/sa/default;Hash=2fc04c32cb6a01f463087d478640bce98dad01f0fdef027d4c2eb9088d781733;Subject=\"\";URI=spiffe://cluster.local/ns/default/sa/default"
+                    ],
+                    "host": [
+                        "distributed-calculation.default.svc.cluster.local:8080"
+                    ],
+                    "content-type": [
+                        "application/json"
+                    ],
+                    "accept-encoding": [
+                        "gzip, deflate"
+                    ],
+                    "user-agent": [
+                        "python-requests/2.26.0"
+                    ]
+                },
+                "remoteAddress": null
+            },
+            "response": {
+                "status": 502,
+                "headers": {}
+            },
+            "timeTaken": 1
+        },
+        {
+            "timestamp": "2021-09-08T05:05:56.363229Z",
+            "principal": null,
+            "session": null,
+            "request": {
+                "method": "POST",
+                "uri": "http://distributed-calculation.default.svc.cluster.local/prime?n=120",
+                "headers": {
+                    "x-request-id": [
+                        "3b98250a-88d7-9534-9020-52d28270f524"
+                    ],
+                    "content-length": [
+                        "0"
+                    ],
+                    "x-b3-parentspanid": [
+                        "0dd525c3fac7d882"
+                    ],
+                    "x-forwarded-proto": [
+                        "http"
+                    ],
+                    "x-b3-sampled": [
+                        "1"
+                    ],
+                    "accept": [
+                        "*/*"
+                    ],
+                    "x-envoy-attempt-count": [
+                        "1"
+                    ],
+                    "x-b3-traceid": [
+                        "61e9242581860da90dd525c3fac7d882"
+                    ],
+                    "x-b3-spanid": [
+                        "be514c59c95e77a8"
+                    ],
+                    "x-forwarded-client-cert": [
+                        "By=spiffe://cluster.local/ns/default/sa/default;Hash=2fc04c32cb6a01f463087d478640bce98dad01f0fdef027d4c2eb9088d781733;Subject=\"\";URI=spiffe://cluster.local/ns/default/sa/default"
+                    ],
+                    "host": [
+                        "distributed-calculation.default.svc.cluster.local:8080"
+                    ],
+                    "content-type": [
+                        "application/json"
+                    ],
+                    "accept-encoding": [
+                        "gzip, deflate"
+                    ],
+                    "user-agent": [
+                        "python-requests/2.26.0"
+                    ]
+                },
+                "remoteAddress": null
+            },
+            "response": {
+                "status": 200,
+                "headers": {}
+            },
+            "timeTaken": 3
+        },
+        {
+            "timestamp": "2021-09-08T05:05:56.286588Z",
+            "principal": null,
+            "session": null,
+            "request": {
+                "method": "POST",
+                "uri": "http://distributed-calculation.default.svc.cluster.local/prime?n=120",
+                "headers": {
+                    "x-request-id": [
+                        "f36b5b34-5f7f-9467-adbb-b32f93178fa9"
+                    ],
+                    "content-length": [
+                        "0"
+                    ],
+                    "x-b3-parentspanid": [
+                        "849e951efc757586"
+                    ],
+                    "x-forwarded-proto": [
+                        "http"
+                    ],
+                    "x-b3-sampled": [
+                        "1"
+                    ],
+                    "accept": [
+                        "*/*"
+                    ],
+                    "x-envoy-attempt-count": [
+                        "1"
+                    ],
+                    "x-b3-traceid": [
+                        "f0c891e52ec5a606849e951efc757586"
+                    ],
+                    "x-b3-spanid": [
+                        "37fbdbf062df9b36"
+                    ],
+                    "x-forwarded-client-cert": [
+                        "By=spiffe://cluster.local/ns/default/sa/default;Hash=2fc04c32cb6a01f463087d478640bce98dad01f0fdef027d4c2eb9088d781733;Subject=\"\";URI=spiffe://cluster.local/ns/default/sa/default"
+                    ],
+                    "host": [
+                        "distributed-calculation.default.svc.cluster.local:8080"
+                    ],
+                    "content-type": [
+                        "application/json"
+                    ],
+                    "accept-encoding": [
+                        "gzip, deflate"
+                    ],
+                    "user-agent": [
+                        "python-requests/2.26.0"
+                    ]
+                },
+                "remoteAddress": null
+            },
+            "response": {
+                "status": 200,
+                "headers": {}
+            },
+            "timeTaken": 1
+        },
+        {
+            "timestamp": "2021-09-08T05:05:56.235908Z",
+            "principal": null,
+            "session": null,
+            "request": {
+                "method": "POST",
+                "uri": "http://distributed-calculation.default.svc.cluster.local/prime?n=120",
+                "headers": {
+                    "x-request-id": [
+                        "ff5aebd7-cf15-9746-b912-0dc1f7f2a3c2"
+                    ],
+                    "content-length": [
+                        "0"
+                    ],
+                    "x-b3-parentspanid": [
+                        "67e21ef994c63cd4"
+                    ],
+                    "x-forwarded-proto": [
+                        "http"
+                    ],
+                    "x-b3-sampled": [
+                        "1"
+                    ],
+                    "accept": [
+                        "*/*"
+                    ],
+                    "x-envoy-attempt-count": [
+                        "1"
+                    ],
+                    "x-b3-traceid": [
+                        "7228dc99d81d76e067e21ef994c63cd4"
+                    ],
+                    "x-b3-spanid": [
+                        "3904b1c837fb1960"
+                    ],
+                    "x-forwarded-client-cert": [
+                        "By=spiffe://cluster.local/ns/default/sa/default;Hash=2fc04c32cb6a01f463087d478640bce98dad01f0fdef027d4c2eb9088d781733;Subject=\"\";URI=spiffe://cluster.local/ns/default/sa/default"
+                    ],
+                    "host": [
+                        "distributed-calculation.default.svc.cluster.local:8080"
+                    ],
+                    "content-type": [
+                        "application/json"
+                    ],
+                    "accept-encoding": [
+                        "gzip, deflate"
+                    ],
+                    "user-agent": [
+                        "python-requests/2.26.0"
+                    ]
+                },
+                "remoteAddress": null
+            },
+            "response": {
+                "status": 502,
+                "headers": {}
+            },
+            "timeTaken": 2
+        },
+        {
+            "timestamp": "2021-09-08T05:05:56.153859Z",
+            "principal": null,
+            "session": null,
+            "request": {
+                "method": "POST",
+                "uri": "http://distributed-calculation.default.svc.cluster.local/prime?n=120",
+                "headers": {
+                    "x-request-id": [
+                        "8f806505-b3c1-9dfa-a663-550c8052523e"
+                    ],
+                    "content-length": [
+                        "0"
+                    ],
+                    "x-b3-parentspanid": [
+                        "1d1a415703baedeb"
+                    ],
+                    "x-forwarded-proto": [
+                        "http"
+                    ],
+                    "x-b3-sampled": [
+                        "1"
+                    ],
+                    "accept": [
+                        "*/*"
+                    ],
+                    "x-envoy-attempt-count": [
+                        "1"
+                    ],
+                    "x-b3-traceid": [
+                        "9f00f6ba383973491d1a415703baedeb"
+                    ],
+                    "x-b3-spanid": [
+                        "56c458d59afbe95f"
+                    ],
+                    "x-forwarded-client-cert": [
+                        "By=spiffe://cluster.local/ns/default/sa/default;Hash=2fc04c32cb6a01f463087d478640bce98dad01f0fdef027d4c2eb9088d781733;Subject=\"\";URI=spiffe://cluster.local/ns/default/sa/default"
+                    ],
+                    "host": [
+                        "distributed-calculation.default.svc.cluster.local:8080"
+                    ],
+                    "content-type": [
+                        "application/json"
+                    ],
+                    "accept-encoding": [
+                        "gzip, deflate"
+                    ],
+                    "user-agent": [
+                        "python-requests/2.26.0"
+                    ]
+                },
+                "remoteAddress": null
+            },
+            "response": {
+                "status": 502,
+                "headers": {}
+            },
+            "timeTaken": 3
+        },
+        {
+            "timestamp": "2021-09-08T05:05:55.982226Z",
+            "principal": null,
+            "session": null,
+            "request": {
+                "method": "POST",
+                "uri": "http://distributed-calculation.default.svc.cluster.local/prime?n=120",
+                "headers": {
+                    "x-request-id": [
+                        "75ab10ef-5b42-989d-ab33-71a066a0c918"
+                    ],
+                    "content-length": [
+                        "0"
+                    ],
+                    "x-b3-parentspanid": [
+                        "5daaa9b96a6d3da8"
+                    ],
+                    "x-forwarded-proto": [
+                        "http"
+                    ],
+                    "x-b3-sampled": [
+                        "1"
+                    ],
+                    "accept": [
+                        "*/*"
+                    ],
+                    "x-envoy-attempt-count": [
+                        "1"
+                    ],
+                    "x-b3-traceid": [
+                        "b815b2d0e2f1cad85daaa9b96a6d3da8"
+                    ],
+                    "x-b3-spanid": [
+                        "aca95209f7120b71"
+                    ],
+                    "x-forwarded-client-cert": [
+                        "By=spiffe://cluster.local/ns/default/sa/default;Hash=2fc04c32cb6a01f463087d478640bce98dad01f0fdef027d4c2eb9088d781733;Subject=\"\";URI=spiffe://cluster.local/ns/default/sa/default"
+                    ],
+                    "host": [
+                        "distributed-calculation.default.svc.cluster.local:8080"
+                    ],
+                    "content-type": [
+                        "application/json"
+                    ],
+                    "accept-encoding": [
+                        "gzip, deflate"
+                    ],
+                    "user-agent": [
+                        "python-requests/2.26.0"
+                    ]
+                },
+                "remoteAddress": null
+            },
+            "response": {
+                "status": 200,
+                "headers": {}
+            },
+            "timeTaken": 35
+        },
+        {
+            "timestamp": "2021-09-08T05:05:39.794039Z",
+            "principal": null,
+            "session": null,
+            "request": {
+                "method": "POST",
+                "uri": "http://192.168.64.3/fault?timeout=0&responseCode=502&frequency=2&shouldCalculate=false",
+                "headers": {
+                    "x-request-id": [
+                        "3fb01a4d-8307-9539-a61a-7f3a57a5c39c"
+                    ],
+                    "content-length": [
+                        "0"
+                    ],
+                    "x-forwarded-proto": [
+                        "http"
+                    ],
+                    "x-b3-traceid": [
+                        "b36b288ccd45ece4ffa677e8c58a8896"
+                    ],
+                    "x-b3-spanid": [
+                        "ffa677e8c58a8896"
+                    ],
+                    "postman-token": [
+                        "778e4e57-c8b3-464e-a92f-18328319eade"
+                    ],
+                    "x-b3-sampled": [
+                        "1"
+                    ],
+                    "host": [
+                        "192.168.64.3:30033"
+                    ],
+                    "cache-control": [
+                        "no-cache"
+                    ],
+                    "accept-encoding": [
+                        "gzip, deflate, br"
+                    ],
+                    "user-agent": [
+                        "PostmanRuntime/7.26.8"
+                    ],
+                    "accept": [
+                        "*/*"
+                    ]
+                },
+                "remoteAddress": null
+            },
+            "response": {
+                "status": 200,
+                "headers": {
+                    "Transfer-Encoding": [
+                        "chunked"
+                    ],
+                    "Date": [
+                        "Wed, 08 Sep 2021 05:05:39 GMT"
+                    ],
+                    "Content-Type": [
+                        "application/json"
+                    ]
+                }
+            },
+            "timeTaken": 161
+        }
+    ]
+}

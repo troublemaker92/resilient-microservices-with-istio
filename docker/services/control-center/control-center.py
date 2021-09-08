@@ -123,11 +123,13 @@ def calculate2():
             'decimalOne': firstNumber,
             'decimalTwo': secondNumber
         }
-        return Response(requests.post(url, data=json.dumps(request_body), headers=HEADER_APP_JSON), 200)
+        response = requests.post(url, data=json.dumps(request_body), headers=HEADER_APP_JSON)
+        return Response(response, response.status_code)
 
     if calculationType == 'prime' or calculationType == 'fibonacci':
         url = url + "?n=" + firstNumber
-        return Response(requests.post(url, headers=HEADER_APP_JSON), 200)
+        response = requests.post(url, headers=HEADER_APP_JSON)
+        return Response(response, response.status_code)
     return abort(403)
 
 

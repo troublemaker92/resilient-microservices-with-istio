@@ -3,6 +3,7 @@ import socket
 import requests
 from operator import itemgetter
 import threading
+import time
 from urllib.parse import urlencode
 import logging
 
@@ -129,6 +130,7 @@ def calculate2():
         url = url + "?n=" + firstNumber
         return Response(requests.post(url, headers=HEADER_APP_JSON), 200)
     return abort(403)
+
 
 
 if __name__ == '__main__':

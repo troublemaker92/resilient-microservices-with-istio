@@ -13,11 +13,6 @@ global shouldStop
 shouldStop = False
 
 
-#REGISTER_SERVICE = 'http://service-repository:8080/findServiceByFunction'
-
-
-BASE_URL = 'http://192.168.64.3:30439/'
-#BASE_URL = 'http://service-repository:8080/'
 HEADER_APP_JSON = {'Content-Type': 'application/json'}
 users = ["ruslan", "alexandra", "hannes", "daniel", "ivan"]
 calculation_type = ["add", "multiply", "fibonacci", "prime"]
@@ -49,6 +44,11 @@ def create_response(body, code):
 
 @app.route('/simulate', methods=['GET'])
 def simulate():
+    minikube_port = request.args.get("port")
+    minikube_ip = request.args.get("ip")
+    duration = request.args.get("duration")
+    start_time = current_time_seconds()
+    BASE_URL = 'http://' + minikube_ip + ':' + minikube_port + '/'
     global shouldStop
     shouldStop = False
     # create bank account and deposit
@@ -64,8 +64,18 @@ def simulate():
         url = BASE_URL + 'calculate2'
         threading.Thread(target=random_request, args=(url, get_random_body(), HEADER_APP_JSON)).start()
         requests.get("http://192.168.64.3:30439/getAnalytics?function=add")
+        check_if_should_stop_works(duration, start_time)
         time.sleep(0.2)
     return create_response("OK", 200)
+
+def check_if_should_stop_works(duration, start_time):
+    d = int(duration) * 1000
+    if int(start_time) + d <= current_time_seconds():
+        global shouldStop
+        shouldStop = True
+
+def current_time_seconds():
+    return round(time.time() * 1000)
 
 @app.route('/stop', methods=['GET'])
 def stop():
